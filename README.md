@@ -1,8 +1,8 @@
 # Love Comedy Romance Stickers
 
-An Android app with five original sticker packs for WhatsApp and WhatsApp Business, plus a sticker maker for your own photos.
+An Android app with six original sticker packs for WhatsApp and WhatsApp Business, plus a sticker maker for your own photos.
 
-![All 48 stickers](docs/preview.png)
+![All 60 stickers](docs/preview.png)
 
 | Pack | Theme | Stickers |
 | --- | --- | --- |
@@ -10,6 +10,7 @@ An Android app with five original sticker packs for WhatsApp and WhatsApp Busine
 | **LOL Beans** | Comedy | LOL, ROFL, Oops!, Cool Story, What?!, JK, Bored, Sus |
 | **Sweet Nothings** | Romance | Together, Mwah, For You, Good Night, Date?, Forever, Thinking of You, Always |
 | **Filmy Dialogues** | Comedy lines in English, Hinglish and Telugu | Main late nahi hoon…, Diet starts tomorrow, Nenu busy…, Seen karke reply nahi?, Enti ra idi?!, Aakali vestondi… and 6 more |
+| **Mass Hero** | Original mass hero and heroine, Telugu romcom lines | Mass Entry!, Nenu vasthe… storm vasthundi!, Hero aithe enti? first coffee techko!, Villains ki bayapadanu… kaani amma ki bayam!, Dhishum! and 7 more |
 | **Movie Mania** | Cinema-going jokes | First Day First Show!, Interval… popcorn time!, Hero Entry!, Mwahaha!, Climax twist, Blockbuster!, Housefull!, Paisa Vasool! and 4 more |
 
 All artwork and dialogue lines are original. None of them use film stills, actors' likenesses or quotes from real films, so the app is safe to publish.

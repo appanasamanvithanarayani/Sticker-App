@@ -659,4 +659,155 @@ const movies = {
   ],
 };
 
-module.exports = { packs: [love, comedy, romance, dialogues, movies], INK };
+// ---- original "Mass Hero" characters ----
+
+const SKIN = '#c68642', SKIN2 = '#e0a77a', HAIR = '#2b1d14', SHIRT = '#d62828', KURTI = '#9d4edd';
+
+// A puff of dust kicked up by a slow-motion entry.
+function dust(x, y) {
+  return `<g fill="#e9d8a6" ${stroke(5)}>
+    <circle cx="${x - 34}" cy="${y + 6}" r="22"/><circle cx="${x + 34}" cy="${y + 6}" r="22"/><circle cx="${x}" cy="${y - 12}" r="30"/>
+  </g><path d="M${x - 56} ${y + 10} q56 26 112 0" fill="#e9d8a6"/>`;
+}
+
+function hand(x, y, r = 16, fill = SKIN) {
+  return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" ${stroke(6)}/>`;
+}
+
+// Hero: spiky hair, short stubble, red shirt. Local coordinates, head centred on (0, 0).
+function hero(x, y, s, { eyes = 'dot', mouth = 'smirk', glasses = false, brows = 'calm', arms = 'down', blush = false } = {}) {
+  const armsSvg = {
+    down: `${limb('M-62 112 Q-92 160 -84 196', SHIRT)}${hand(-84, 200)}${limb('M62 112 Q92 160 84 196', SHIRT)}${hand(84, 200)}`,
+    punch: `${limb('M-62 112 Q-92 160 -84 196', SHIRT)}${hand(-84, 200)}${limb('M62 112 Q120 104 162 84', SHIRT)}
+      <path d="M214 30 l10 30 l30 -6 l-20 24 l22 20 l-30 0 l-6 30 l-16 -26 l-26 14 l6 -30 l-28 -12 l30 -8 l-6 -30 l24 18 Z" fill="#ffd166" ${stroke(5)}/>
+      ${hand(176, 80, 26)}`,
+    crossed: `${limb('M-62 116 Q-10 176 54 136', SHIRT)}${hand(58, 134)}${limb('M62 116 Q10 166 -54 146', SHIRT)}${hand(-58, 146)}`,
+    plate: `${limb('M-62 112 Q-96 150 -70 168', SHIRT)}${limb('M62 112 Q96 150 70 168', SHIRT)}
+      <ellipse cx="0" cy="172" rx="96" ry="24" fill="#fff" ${stroke(6)}/>
+      <path d="M-50 166 Q-30 130 0 140 Q30 128 52 166 Z" fill="#ffd166" ${stroke(5)}/>
+      <circle cx="-14" cy="150" r="5" fill="#e09f3e"/><circle cx="18" cy="148" r="5" fill="#52b788"/>
+      ${hand(-76, 172)}${hand(76, 172)}`,
+    heart: `${limb('M-62 112 Q-70 160 -30 160', SHIRT)}${limb('M62 112 Q70 160 30 160', SHIRT)}
+      ${heart(0, 150, 42, RED)}${hand(-34, 160)}${hand(34, 160)}`,
+    thumb: `${limb('M-62 112 Q-92 160 -84 196', SHIRT)}${hand(-84, 200)}${limb('M62 112 Q118 100 118 50', SHIRT)}
+      <rect x="110" y="0" width="16" height="34" rx="8" fill="${SKIN}" ${stroke(5)}/>${hand(118, 46, 22)}`,
+    scared: `${limb('M-62 112 Q-110 90 -100 40', SHIRT)}${hand(-100, 34)}${limb('M62 112 Q110 90 100 40', SHIRT)}${hand(100, 34)}`,
+  }[arms];
+  const browsSvg = {
+    calm: `<path d="M-52 -36 Q-34 -46 -14 -36 M52 -36 Q34 -46 14 -36" fill="none" ${stroke(9)}/>`,
+    angry: `<path d="M-54 -46 L-14 -30 M54 -46 L14 -30" ${stroke(10)}/>`,
+    worried: `<path d="M-52 -30 L-16 -44 M52 -30 L16 -44" ${stroke(9)}/>`,
+  }[brows];
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-70 90 Q-84 200 -60 214 H60 Q84 200 70 90 Q0 70 -70 90 Z" fill="${SHIRT}" ${stroke()}/>
+    <path d="M-26 84 L0 124 L26 84" fill="#fff" ${stroke(5)}/>
+    <circle cx="0" cy="0" r="90" fill="${SKIN}" ${stroke()}/>
+    <path d="M-86 16 Q-80 92 0 92 Q80 92 86 16 Q70 44 50 40 Q30 76 0 74 Q-30 76 -50 40 Q-70 44 -86 16 Z" fill="${HAIR}" opacity="0.85"/>
+    <path d="M-92 -6 Q-104 -84 -44 -98 L-40 -132 L-8 -104 L22 -138 L40 -100 L74 -116 L70 -84 Q104 -60 92 -6 Q82 -54 44 -60 Q0 -76 -44 -60 Q-82 -54 -92 -6 Z" fill="${HAIR}" ${stroke(6)}/>
+    ${face(0, 2, 1.25, { eyes: glasses ? 'none' : eyes, mouth, blush })}
+    ${glasses ? sunglasses(0, -4, 1.25) : browsSvg}
+    ${armsSvg}
+  </g>`;
+}
+
+// Heroine: long dark hair with a jasmine string, purple kurti, red bindi.
+function heroine(x, y, s, { eyes = 'happy', mouth = 'smile', arms = 'down', blush = true, brows = null } = {}) {
+  const armsSvg = {
+    down: `${limb('M-58 112 Q-86 160 -78 194', KURTI)}${hand(-78, 198, 15, SKIN2)}${limb('M58 112 Q86 160 78 194', KURTI)}${hand(78, 198, 15, SKIN2)}`,
+    crossed: `${limb('M-58 116 Q-10 172 50 136', KURTI)}${hand(54, 134, 15, SKIN2)}${limb('M58 116 Q10 162 -50 146', KURTI)}${hand(-54, 146, 15, SKIN2)}`,
+    cheeks: `${limb('M-58 112 Q-110 90 -74 40', KURTI)}${hand(-70, 34, 18, SKIN2)}${limb('M58 112 Q110 90 74 40', KURTI)}${hand(70, 34, 18, SKIN2)}`,
+    phone: `${limb('M-58 116 Q-10 172 50 136', KURTI)}${hand(54, 134, 15, SKIN2)}${limb('M58 112 Q120 120 118 70', KURTI)}
+      ${phone(122, 40, 0.8, 10)}${hand(116, 74, 15, SKIN2)}`,
+  }[arms];
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-96 -10 Q-110 120 -76 150 L76 150 Q110 120 96 -10 Z" fill="${HAIR}" ${stroke(6)}/>
+    <path d="M-64 92 Q-80 200 -58 214 H58 Q80 200 64 92 Q0 74 -64 92 Z" fill="${KURTI}" ${stroke()}/>
+    <path d="M-30 88 Q0 120 30 88" fill="none" stroke="#ffd166" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="86" fill="${SKIN2}" ${stroke()}/>
+    <path d="M-90 4 Q-96 -90 0 -96 Q96 -90 90 4 Q70 -50 20 -52 Q0 -30 -10 -52 Q-70 -50 -90 4 Z" fill="${HAIR}" ${stroke(6)}/>
+    ${[[70, -62], [84, -42], [92, -20]].map(([cx, cy]) => `<circle cx="${cx}" cy="${cy}" r="10" fill="#fff" ${stroke(4)}/>`).join('')}
+    <circle cx="0" cy="-34" r="6" fill="#e5383b"/>
+    ${face(0, 6, 1.2, { eyes, mouth, blush })}
+    ${brows === 'angry' ? `<path d="M-50 -24 L-14 -12 M50 -24 L14 -12" ${stroke(7)}/>` : ''}
+    ${armsSvg}
+  </g>`;
+}
+
+const HERO_AT = (opts, extra = '') => `${extra}${hero(256, 190, 0.95, opts)}`;
+const HEROINE_AT = (opts, extra = '') => `${extra}${heroine(256, 190, 0.95, opts)}`;
+
+// Original "mass" and romcom lines, mostly Telugu written in English letters.
+const massHero = {
+  identifier: 'mass_hero',
+  name: 'Mass Hero',
+  version: '1',
+  accent: '#d62828',
+  trayFrom: 0,
+  stickers: [
+    {
+      file: '01_mass_entry', text: 'MASS ENTRY!', emojis: ['😎', '🔥'],
+      alt: 'A hero in sunglasses makes a slow-motion entry with sparkles and dust',
+      art: () => HERO_AT({ glasses: true, mouth: 'smirk' }, `${sparkle(70, 90, 28)}${sparkle(440, 100, 26)}
+        ${dust(96, 380)}${dust(416, 380)}`),
+    },
+    {
+      file: '02_storm', bubble: ['Nenu vasthe...', 'storm vasthundi!'], emojis: ['🌪️', '😤'],
+      alt: 'A confident hero says when I arrive, a storm arrives',
+      art: () => HERO_AT({ eyes: 'dot', brows: 'angry', mouth: 'smirk', arms: 'crossed' }),
+    },
+    {
+      file: '03_full_charge', bubble: ['Nuvvu smile chesthe', 'naa heart full charge!'], emojis: ['🥰', '🔋'],
+      alt: 'A blushing hero holds a heart and says your smile fully charges my heart',
+      art: () => HERO_AT({ eyes: 'happy', mouth: 'grin', arms: 'heart', blush: true }),
+    },
+    {
+      file: '04_coffee', bubble: ['Hero aithe enti?', 'first coffee techko!'], emojis: ['☕', '😏'],
+      alt: 'The heroine folds her arms and says so what if you are a hero, bring coffee first',
+      art: () => HEROINE_AT({ eyes: 'side', mouth: 'smirk', arms: 'crossed', blush: false }),
+    },
+    {
+      file: '05_lunch', bubble: ['Fight ki ready...', 'kaani lunch tarvatha!'], emojis: ['🍛', '😋'],
+      alt: 'The hero holds a plate of food and says ready to fight, but after lunch',
+      art: () => HERO_AT({ eyes: 'happy', mouth: 'tongue', arms: 'plate' }),
+    },
+    {
+      file: '06_boss', text: 'BOSS IS BACK!', emojis: ['👑', '😎'],
+      alt: 'The hero in sunglasses gives a thumbs up, the boss is back',
+      art: () => HERO_AT({ glasses: true, mouth: 'grin', arms: 'thumb' },
+        `<path d="M206 46 L216 6 L240 30 L256 0 L272 30 L296 6 L306 46 Z" fill="#ffd166" ${stroke(6)}/>`),
+    },
+    {
+      file: '07_jodi', bubble: ['Mana jodi', 'superhit!'], emojis: ['💑', '❤️'],
+      alt: 'The hero and heroine stand together under a heart',
+      art: () => `${heroine(346, 210, 0.78, { eyes: 'happy', mouth: 'grin' })}${hero(170, 210, 0.78, { eyes: 'happy', mouth: 'grin', blush: true })}
+        ${heart(258, 60, 36, RED)}${sparkle(190, 40, 16)}${sparkle(330, 36, 16)}`,
+    },
+    {
+      file: '08_amma', bubble: ['Villains ki bayapadanu...', 'kaani amma ki bayam!'], emojis: ['😰', '🙏'],
+      alt: 'The hero raises his hands in fear and says not scared of villains but scared of mom',
+      art: () => HERO_AT({ eyes: 'shock', brows: 'worried', mouth: 'grimace', arms: 'scared' }, drop(380, 120, 1.4, '#7ad3ff', 10)),
+    },
+    {
+      file: '09_siggu', bubble: ['Ayyo...', 'siggu ga undi!'], emojis: ['☺️', '🙈'],
+      alt: 'The blushing heroine holds her cheeks and says I feel shy',
+      art: () => HEROINE_AT({ eyes: 'closed', mouth: 'smile', arms: 'cheeks' }, `${heart(90, 110, 22, PINK)}${heart(424, 96, 18, BLUSH)}`),
+    },
+    {
+      file: '10_dhishum', text: 'DHISHUM!', emojis: ['👊', '💥'],
+      alt: 'The hero throws a punch with a big impact star',
+      art: () => `${hero(220, 190, 0.95, { eyes: 'dot', brows: 'angry', mouth: 'grimace', arms: 'punch' })}`,
+    },
+    {
+      file: '11_attitude', bubble: ['Attitude naa', 'birth certificate lo undi!'], emojis: ['😎', '💯'],
+      alt: 'The hero in sunglasses says attitude is written on my birth certificate',
+      art: () => HERO_AT({ glasses: true, mouth: 'smirk', arms: 'crossed' }, sparkle(430, 90, 24)),
+    },
+    {
+      file: '12_reply', bubble: ['Reply ivvaledu ga...', 'ippudu cheptha!'], emojis: ['😤', '📱'],
+      alt: 'The angry heroine holds a phone and says you did not reply, now you will see',
+      art: () => HEROINE_AT({ eyes: 'dot', mouth: 'frown', arms: 'phone', blush: false, brows: 'angry' }),
+    },
+  ],
+};
+
+module.exports = { packs: [love, comedy, romance, dialogues, movies, massHero], INK };

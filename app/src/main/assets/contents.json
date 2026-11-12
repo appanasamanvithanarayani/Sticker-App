@@ -460,6 +460,117 @@
           "accessibility_text": "A bean covers its ears and squeezes its eyes shut to avoid spoilers"
         }
       ]
+    },
+    {
+      "identifier": "mass_hero",
+      "name": "Mass Hero",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_mass_entry.webp",
+          "emojis": [
+            "😎",
+            "🔥"
+          ],
+          "accessibility_text": "A hero in sunglasses makes a slow-motion entry with sparkles and dust"
+        },
+        {
+          "image_file": "02_storm.webp",
+          "emojis": [
+            "🌪️",
+            "😤"
+          ],
+          "accessibility_text": "A confident hero says when I arrive, a storm arrives"
+        },
+        {
+          "image_file": "03_full_charge.webp",
+          "emojis": [
+            "🥰",
+            "🔋"
+          ],
+          "accessibility_text": "A blushing hero holds a heart and says your smile fully charges my heart"
+        },
+        {
+          "image_file": "04_coffee.webp",
+          "emojis": [
+            "☕",
+            "😏"
+          ],
+          "accessibility_text": "The heroine folds her arms and says so what if you are a hero, bring coffee first"
+        },
+        {
+          "image_file": "05_lunch.webp",
+          "emojis": [
+            "🍛",
+            "😋"
+          ],
+          "accessibility_text": "The hero holds a plate of food and says ready to fight, but after lunch"
+        },
+        {
+          "image_file": "06_boss.webp",
+          "emojis": [
+            "👑",
+            "😎"
+          ],
+          "accessibility_text": "The hero in sunglasses gives a thumbs up, the boss is back"
+        },
+        {
+          "image_file": "07_jodi.webp",
+          "emojis": [
+            "💑",
+            "❤️"
+          ],
+          "accessibility_text": "The hero and heroine stand together under a heart"
+        },
+        {
+          "image_file": "08_amma.webp",
+          "emojis": [
+            "😰",
+            "🙏"
+          ],
+          "accessibility_text": "The hero raises his hands in fear and says not scared of villains but scared of mom"
+        },
+        {
+          "image_file": "09_siggu.webp",
+          "emojis": [
+            "☺️",
+            "🙈"
+          ],
+          "accessibility_text": "The blushing heroine holds her cheeks and says I feel shy"
+        },
+        {
+          "image_file": "10_dhishum.webp",
+          "emojis": [
+            "👊",
+            "💥"
+          ],
+          "accessibility_text": "The hero throws a punch with a big impact star"
+        },
+        {
+          "image_file": "11_attitude.webp",
+          "emojis": [
+            "😎",
+            "💯"
+          ],
+          "accessibility_text": "The hero in sunglasses says attitude is written on my birth certificate"
+        },
+        {
+          "image_file": "12_reply.webp",
+          "emojis": [
+            "😤",
+            "📱"
+          ],
+          "accessibility_text": "The angry heroine holds a phone and says you did not reply, now you will see"
+        }
+      ]
     }
   ]
 }
