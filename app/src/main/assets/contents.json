@@ -5,7 +5,7 @@
     {
       "identifier": "love",
       "name": "Love Bites",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,
@@ -84,7 +84,7 @@
     {
       "identifier": "comedy",
       "name": "LOL Beans",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,
@@ -163,7 +163,7 @@
     {
       "identifier": "romance",
       "name": "Sweet Nothings",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,
@@ -242,7 +242,7 @@
     {
       "identifier": "dialogues",
       "name": "Filmy Dialogues",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,
@@ -353,7 +353,7 @@
     {
       "identifier": "movies",
       "name": "Movie Mania",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,
@@ -464,7 +464,7 @@
     {
       "identifier": "mass_hero",
       "name": "Mass Hero",
-      "publisher": "Filmy Feels",
+      "publisher": "RomCom Stickers",
       "tray_image_file": "tray.png",
       "image_data_version": "1",
       "avoid_cache": false,

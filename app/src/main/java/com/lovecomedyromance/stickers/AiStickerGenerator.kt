@@ -35,7 +35,7 @@ object AiStickerGenerator {
     private val ai get() = Firebase.ai(backend = GenerativeBackend.googleAI())
 
     private val PLANNER_RULES = """
-        You plan stickers for a WhatsApp sticker app called Filmy Feels.
+        You plan stickers for a WhatsApp sticker app called RomCom Stickers.
         Rules:
         - Every caption is original, short and punchy: at most 6 words and 40 characters.
         - Write captions in the requested language. Telugu and Hindi must be written in English letters.

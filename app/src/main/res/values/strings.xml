@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Filmy Feels</string>
+    <string name="app_name">RomCom Stickers</string>
     <string name="tagline">Love, comedy and mass stickers for WhatsApp.</string>
     <string name="add">Add</string>
     <string name="added">Added ✓</string>
@@ -95,7 +95,7 @@
     <string name="ai_report">Report</string>
     <string name="ai_report_title">Report this sticker?</string>
     <string name="ai_report_message">If this sticker is offensive or inappropriate, report it and it will be removed.</string>
-    <string name="ai_report_subject">Filmy Feels: AI sticker report</string>
+    <string name="ai_report_subject">RomCom Stickers: AI sticker report</string>
     <string name="ai_reported">Thanks, the sticker was removed.</string>
     <string name="ai_nothing_saved">My Stickers is full. Delete some stickers to make room.</string>
     <string name="ai_disclaimer">Stickers are made by AI (Google Gemini) and may not always be perfect. Your description is sent to Google to make them.</string>

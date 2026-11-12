@@ -1,4 +1,4 @@
-# Filmy Feels
+# RomCom Stickers
 
 An Android app with six original sticker packs for WhatsApp and WhatsApp Business, plus a sticker maker for your own photos.
 
