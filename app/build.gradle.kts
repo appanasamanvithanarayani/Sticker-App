@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         // Change this to your own unique ID before publishing to Google Play.
-        applicationId = "com.lovecomedyromance.stickers"
+        applicationId = "com.romcomstickers.app"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

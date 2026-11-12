@@ -47,7 +47,7 @@ The prompts tell Gemini not to draw real people or film characters and to keep t
 
 The app calls Gemini through [Firebase AI Logic](https://firebase.google.com/docs/ai-logic), so no API key is stored in the app.
 
-1. Create a project in the [Firebase console](https://console.firebase.google.com) and add an Android app with the package name `com.lovecomedyromance.stickers`.
+1. Create a project in the [Firebase console](https://console.firebase.google.com) and add an Android app with the package name `com.romcomstickers.app` (the `applicationId` in `app/build.gradle.kts`).
 2. Download `google-services.json` and put it in `app/`. It is in `.gitignore`, so it stays out of this public repo.
 3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. Image generation needs the project on the pay-as-you-go **Blaze** plan.
 4. Turn on **App Check** with **Play Integrity**, and enforce it for AI Logic so only your app can use your quota. For debug builds, copy the debug token the app prints to Logcat into App Check's **Manage debug tokens**.
