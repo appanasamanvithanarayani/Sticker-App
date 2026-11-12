@@ -32,6 +32,30 @@ Once **My Stickers** has 3 stickers, it can be added to WhatsApp like the other 
 - WhatsApp reads the stickers through `StickerContentProvider`, using the URI layout and column names that WhatsApp expects.
 - Every sticker is a 512×512 WebP with a transparent background, under 100 KB. Every pack has a 96×96 tray icon, 1–3 emojis per sticker and accessibility text, as WhatsApp requires.
 
+## AI Sticker Studio
+
+Tap **AI stickers** on the home screen, describe a scenario ("my friend is always late to college and we tease him"), and pick a genre (comedy, romance, romcom, mass, filmy drama, cute…), a caption language and a drawing style. Then:
+
+1. Gemini writes 4 sticker ideas with original captions.
+2. Gemini draws each one on a plain white background.
+3. The phone cuts out the drawing and adds the white border and caption.
+4. You keep the ones you like, and they go into **My Stickers**.
+
+The prompts tell Gemini not to draw real people or film characters and to keep things light-hearted. Every result has a **Report** button, as Google Play requires for AI-generated content. Each phone gets 5 generations a day (`AiQuota.kt`) to keep costs down.
+
+### Turning it on (one-time setup)
+
+The app calls Gemini through [Firebase AI Logic](https://firebase.google.com/docs/ai-logic), so no API key is stored in the app.
+
+1. Create a project in the [Firebase console](https://console.firebase.google.com) and add an Android app with the package name `com.lovecomedyromance.stickers`.
+2. Download `google-services.json` and put it in `app/`. It is in `.gitignore`, so it stays out of this public repo.
+3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. Image generation needs the project on the pay-as-you-go **Blaze** plan.
+4. Turn on **App Check** with **Play Integrity**, and enforce it for AI Logic so only your app can use your quota. For debug builds, copy the debug token the app prints to Logcat into App Check's **Manage debug tokens**.
+5. Check that the model names in `AiStickerGenerator.kt` (`TEXT_MODEL`, `IMAGE_MODEL`) are still listed on the [supported models page](https://firebase.google.com/docs/ai-logic/models); Google retires old models regularly.
+6. Set `support_email` in `app/src/main/res/values/strings.xml` so sticker reports reach you.
+
+Builds without `google-services.json`, including the GitHub Actions build, still work; the AI screen just says it isn't set up.
+
 ## Build and run
 
 1. Open the project in Android Studio, or build from the command line:
@@ -57,6 +81,8 @@ app/src/main/
   java/.../CreateStickerActivity.kt  photo sticker maker
   java/.../StickerComposer.kt  cut-out, border, caption and WebP encoding
   java/.../MyStickers.kt      storage for the user's own pack
+  java/.../AiStudioActivity.kt     AI Sticker Studio screen
+  java/.../AiStickerGenerator.kt   Gemini prompts and model names
 tools/sticker-gen/            the sticker artwork and the scripts that render it
 ```
 

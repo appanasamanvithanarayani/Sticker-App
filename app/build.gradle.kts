@@ -3,6 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+// AI stickers use Firebase AI Logic. Put your google-services.json in app/ to turn them on;
+// without it the app still builds and the AI screen explains that it isn't set up.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+}
+
 android {
     namespace = "com.lovecomedyromance.stickers"
     compileSdk = 35
@@ -57,4 +63,10 @@ dependencies {
     // On-device background removal for "Make a sticker".
     implementation("com.google.android.gms:play-services-mlkit-subject-segmentation:16.0.0-beta1")
     implementation("com.google.android.gms:play-services-base:18.5.0")
+
+    // AI Sticker Studio: Gemini through Firebase AI Logic, protected by App Check.
+    implementation(platform("com.google.firebase:firebase-bom:35.2.0"))
+    implementation("com.google.firebase:firebase-ai")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
+    debugImplementation("com.google.firebase:firebase-appcheck-debug")
 }

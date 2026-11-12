@@ -72,6 +72,71 @@
         <item>🙏</item>
         <item>🎬</item>
     </string-array>
+    <!-- Set this to an inbox you read before publishing: reports of AI stickers are emailed here. -->
+    <string name="support_email" translatable="false"></string>
+    <string name="ai_studio">AI Sticker Studio</string>
+    <string name="ai_open">AI stickers</string>
+    <string name="ai_intro">Describe a situation and pick a mood. AI draws 4 stickers for it, and you keep the ones you like.</string>
+    <string name="ai_scenario_hint">Describe the scenario</string>
+    <string name="ai_scenario_too_short">Tell us a little more about the scenario.</string>
+    <string name="ai_examples_label">Try one</string>
+    <string name="ai_genre">Genre</string>
+    <string name="ai_language">Caption language</string>
+    <string name="ai_style">Drawing style</string>
+    <string name="ai_generate">Generate stickers</string>
+    <string name="ai_remaining">%1$d of %2$d generations left today</string>
+    <string name="ai_quota_used">You\'ve used all %1$d generations for today. Come back tomorrow!</string>
+    <string name="ai_status_planning">Writing sticker ideas…</string>
+    <string name="ai_status_drawing">Drawing sticker %1$d of %2$d…</string>
+    <string name="ai_error_blocked">The AI couldn\'t make stickers for that description. Try describing it differently.</string>
+    <string name="ai_error_generic">Couldn\'t make stickers right now. Check your internet connection and try again.</string>
+    <string name="ai_error_nothing">No stickers came back this time. Please try again.</string>
+    <string name="ai_keep">Keep</string>
+    <string name="ai_report">Report</string>
+    <string name="ai_report_title">Report this sticker?</string>
+    <string name="ai_report_message">If this sticker is offensive or inappropriate, report it and it will be removed.</string>
+    <string name="ai_report_subject">Filmy Feels: AI sticker report</string>
+    <string name="ai_reported">Thanks, the sticker was removed.</string>
+    <string name="ai_nothing_saved">My Stickers is full. Delete some stickers to make room.</string>
+    <string name="ai_disclaimer">Stickers are made by AI (Google Gemini) and may not always be perfect. Your description is sent to Google to make them.</string>
+    <string name="ai_not_configured">AI stickers aren\'t set up in this build of the app. The developer needs to connect it to Firebase AI Logic (see the README).</string>
+    <plurals name="ai_saved">
+        <item quantity="one">Saved %1$d sticker to My Stickers</item>
+        <item quantity="other">Saved %1$d stickers to My Stickers</item>
+    </plurals>
+    <plurals name="ai_save_selected">
+        <item quantity="one">Save %1$d sticker to My Stickers</item>
+        <item quantity="other">Save %1$d stickers to My Stickers</item>
+    </plurals>
+    <string-array name="ai_genres">
+        <item>Comedy</item>
+        <item>Romance</item>
+        <item>Romcom</item>
+        <item>Mass</item>
+        <item>Filmy drama</item>
+        <item>Cute</item>
+        <item>Friendship</item>
+        <item>College and office</item>
+    </string-array>
+    <string-array name="ai_languages">
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Telugu, Hindi and English mix</item>
+    </string-array>
+    <string-array name="ai_styles">
+        <item>Cute cartoon</item>
+        <item>3D toy</item>
+        <item>Comic book</item>
+        <item>Chibi</item>
+    </string-array>
+    <string-array name="ai_examples">
+        <item>My friend is always late to college and we tease him</item>
+        <item>Couple fighting over who ate the last biryani piece</item>
+        <item>Monday morning at the office, everyone sleepy</item>
+        <item>Mom finds out I bunked the exam</item>
+        <item>Proposing to my crush with a rose, very filmy</item>
+    </string-array>
     <plurals name="sticker_count">
         <item quantity="one">%1$d sticker · %2$s</item>
         <item quantity="other">%1$d stickers · %2$s</item>

@@ -38,6 +38,7 @@ class MainActivity : AddPackActivity() {
         binding.packList.layoutManager = LinearLayoutManager(this)
         binding.packList.adapter = adapter
         binding.makeSticker.setOnClickListener { openCreator() }
+        binding.aiStudio.setOnClickListener { startActivity(Intent(this, AiStudioActivity::class.java)) }
     }
 
     override fun onResume() {

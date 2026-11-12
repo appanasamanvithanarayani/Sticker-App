@@ -8,6 +8,7 @@
     </queries>
 
     <application
+        android:name=".FilmyFeelsApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
@@ -31,6 +32,12 @@
 
         <activity
             android:name=".CreateStickerActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".AiStudioActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
