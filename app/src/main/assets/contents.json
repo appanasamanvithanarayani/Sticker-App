@@ -238,6 +238,228 @@
           "accessibility_text": "A lilac bean holds a heart-shaped balloon"
         }
       ]
+    },
+    {
+      "identifier": "dialogues",
+      "name": "Filmy Dialogues",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_late.webp",
+          "emojis": [
+            "⏰",
+            "😅"
+          ],
+          "accessibility_text": "A bean holding a clock says I am not late, time came early"
+        },
+        {
+          "image_file": "02_diet.webp",
+          "emojis": [
+            "🍕",
+            "😋"
+          ],
+          "accessibility_text": "A bean happily holds pizza and says diet starts tomorrow"
+        },
+        {
+          "image_file": "03_busy.webp",
+          "emojis": [
+            "😉",
+            "❤️"
+          ],
+          "accessibility_text": "A winking heart says I am busy but always free for you"
+        },
+        {
+          "image_file": "04_seen.webp",
+          "emojis": [
+            "📱",
+            "😤"
+          ],
+          "accessibility_text": "A shocked bean stares at a phone that shows a seen message"
+        },
+        {
+          "image_file": "05_meeting.webp",
+          "emojis": [
+            "😴",
+            "🛏️"
+          ],
+          "accessibility_text": "A sleepy bean tucked under a blanket says it is in a meeting with its bed"
+        },
+        {
+          "image_file": "06_chai.webp",
+          "emojis": [
+            "☕",
+            "😌"
+          ],
+          "accessibility_text": "A calm bean with a cup of chai says all problems are solved"
+        },
+        {
+          "image_file": "07_cute.webp",
+          "emojis": [
+            "🥰",
+            "😍"
+          ],
+          "accessibility_text": "A blushing heart with heart eyes says you are very cute"
+        },
+        {
+          "image_file": "08_salary.webp",
+          "emojis": [
+            "💸",
+            "😭"
+          ],
+          "accessibility_text": "A crying bean watches its money fly away"
+        },
+        {
+          "image_file": "09_mass.webp",
+          "emojis": [
+            "😎",
+            "🔥"
+          ],
+          "accessibility_text": "A cool bean in sunglasses says the mood is full mass"
+        },
+        {
+          "image_file": "10_enti.webp",
+          "emojis": [
+            "😳",
+            "❓"
+          ],
+          "accessibility_text": "A shocked bean asks what is this"
+        },
+        {
+          "image_file": "11_sorry.webp",
+          "emojis": [
+            "🙏",
+            "😊"
+          ],
+          "accessibility_text": "A shy lilac bean offers a flower and says sorry, now smile"
+        },
+        {
+          "image_file": "12_aakali.webp",
+          "emojis": [
+            "🍛",
+            "😋"
+          ],
+          "accessibility_text": "A hungry bean holds a bowl of biryani"
+        }
+      ]
+    },
+    {
+      "identifier": "movies",
+      "name": "Movie Mania",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_fdfs.webp",
+          "emojis": [
+            "🎟️",
+            "🤩"
+          ],
+          "accessibility_text": "An excited bean waves two movie tickets for the first day first show"
+        },
+        {
+          "image_file": "02_interval.webp",
+          "emojis": [
+            "🍿",
+            "😋"
+          ],
+          "accessibility_text": "A happy popcorn bucket says it is interval, popcorn time"
+        },
+        {
+          "image_file": "03_hero_entry.webp",
+          "emojis": [
+            "😎",
+            "🔥"
+          ],
+          "accessibility_text": "A bean in sunglasses stands in a spotlight for its hero entry"
+        },
+        {
+          "image_file": "04_villain.webp",
+          "emojis": [
+            "😈",
+            "😂"
+          ],
+          "accessibility_text": "A lilac bean with a curly mustache laughs like a movie villain"
+        },
+        {
+          "image_file": "05_twist.webp",
+          "emojis": [
+            "🎬",
+            "😱"
+          ],
+          "accessibility_text": "A shocked bean holds a clapperboard after a climax twist"
+        },
+        {
+          "image_file": "06_blockbuster.webp",
+          "emojis": [
+            "🏆",
+            "🎉"
+          ],
+          "accessibility_text": "A smiling gold trophy celebrates a blockbuster"
+        },
+        {
+          "image_file": "07_housefull.webp",
+          "emojis": [
+            "🎫",
+            "🥳"
+          ],
+          "accessibility_text": "A cheerful movie ticket celebrates a housefull show"
+        },
+        {
+          "image_file": "08_ott.webp",
+          "emojis": [
+            "📺",
+            "😴"
+          ],
+          "accessibility_text": "A sleepy bean waits in front of a TV for the streaming release"
+        },
+        {
+          "image_file": "09_emotional.webp",
+          "emojis": [
+            "😭",
+            "🤧"
+          ],
+          "accessibility_text": "A crying bean reaches for a box of tissues during an emotional scene"
+        },
+        {
+          "image_file": "10_cut.webp",
+          "emojis": [
+            "🎬",
+            "🙄"
+          ],
+          "accessibility_text": "A grumpy clapperboard calls cut and retake"
+        },
+        {
+          "image_file": "11_paisa_vasool.webp",
+          "emojis": [
+            "💰",
+            "😁"
+          ],
+          "accessibility_text": "A delighted bean says the movie was worth every penny"
+        },
+        {
+          "image_file": "12_no_spoilers.webp",
+          "emojis": [
+            "🙉",
+            "🤐"
+          ],
+          "accessibility_text": "A bean covers its ears and squeezes its eyes shut to avoid spoilers"
+        }
+      ]
     }
   ]
 }

@@ -1,14 +1,28 @@
 # Love Comedy Romance Stickers
 
-An Android app that adds three original sticker packs to WhatsApp and WhatsApp Business.
+An Android app with five original sticker packs for WhatsApp and WhatsApp Business, plus a sticker maker for your own photos.
 
-![All 24 stickers](docs/preview.png)
+![All 48 stickers](docs/preview.png)
 
 | Pack | Theme | Stickers |
 | --- | --- | --- |
 | **Love Bites** | Cute hearts | Love You, Hugs, Crushing, Miss You, XOXO, Aww, Ouch!, You're Mine |
 | **LOL Beans** | Comedy | LOL, ROFL, Oops!, Cool Story, What?!, JK, Bored, Sus |
 | **Sweet Nothings** | Romance | Together, Mwah, For You, Good Night, Date?, Forever, Thinking of You, Always |
+| **Filmy Dialogues** | Comedy lines in English, Hinglish and Telugu | Main late nahi hoon…, Diet starts tomorrow, Nenu busy…, Seen karke reply nahi?, Enti ra idi?!, Aakali vestondi… and 6 more |
+| **Movie Mania** | Cinema-going jokes | First Day First Show!, Interval… popcorn time!, Hero Entry!, Mwahaha!, Climax twist, Blockbuster!, Housefull!, Paisa Vasool! and 4 more |
+
+All artwork and dialogue lines are original. None of them use film stills, actors' likenesses or quotes from real films, so the app is safe to publish.
+
+## Make your own stickers
+
+Tap **Make a sticker**, pick a photo, and the app:
+
+1. Cuts out the person or object with Google ML Kit, on the phone. Photos are never uploaded. The model is downloaded through Google Play services the first time.
+2. Lets you add a caption, typed or from quick captions like "Enti ra idi?!" or "Hero entry!", in yellow, white or pink.
+3. Adds a white sticker border, saves a 512×512 WebP under 100 KB and puts it in **My Stickers**.
+
+Once **My Stickers** has 3 stickers, it can be added to WhatsApp like the other packs. It holds up to 30. Long-press a sticker to delete it.
 
 ## How it works
 
@@ -39,6 +53,9 @@ app/src/main/
   java/.../WhatsApp.kt        "already added?" check and the add-pack intent
   java/.../MainActivity.kt    pack list
   java/.../PackDetailActivity.kt  sticker grid for one pack
+  java/.../CreateStickerActivity.kt  photo sticker maker
+  java/.../StickerComposer.kt  cut-out, border, caption and WebP encoding
+  java/.../MyStickers.kt      storage for the user's own pack
 tools/sticker-gen/            the sticker artwork and the scripts that render it
 ```
 
@@ -63,4 +80,4 @@ To use your own images instead, put them in `app/src/main/assets/<pack>/`, list 
 
 ## Credits
 
-The sticker artwork is original. Captions use the [Fredoka](https://fonts.google.com/specimen/Fredoka) font (SIL Open Font License).
+The sticker artwork and dialogue lines are original. Captions use the [Fredoka](https://fonts.google.com/specimen/Fredoka) font (SIL Open Font License, see `licenses/Fredoka-OFL.txt`).

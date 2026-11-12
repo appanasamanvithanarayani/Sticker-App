@@ -3,4 +3,5 @@
     <dimen name="preview_size">72dp</dimen>
     <dimen name="grid_sticker_size">96dp</dimen>
     <integer name="grid_columns">3</integer>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

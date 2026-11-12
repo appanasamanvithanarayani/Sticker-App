@@ -19,13 +19,24 @@ object StickerPackLoader {
     @Volatile
     private var cached: List<StickerPack>? = null
 
-    fun load(context: Context): List<StickerPack> =
+    /** The packs that ship inside the app. */
+    fun assetPacks(context: Context): List<StickerPack> =
         cached ?: synchronized(this) {
             cached ?: parse(context.applicationContext).also { cached = it }
         }
 
+    /** Every pack to show in the app, with "My Stickers" first. */
+    fun allPacks(context: Context): List<StickerPack> = listOf(MyStickers.pack(context)) + assetPacks(context)
+
+    /** The packs WhatsApp may read: "My Stickers" only counts once it has enough stickers. */
+    fun packsForWhatsApp(context: Context): List<StickerPack> {
+        val mine = MyStickers.pack(context)
+        return if (mine.stickers.size >= MyStickers.MIN_FOR_WHATSAPP) listOf(mine) + assetPacks(context) else assetPacks(context)
+    }
+
     fun find(context: Context, identifier: String): StickerPack? =
-        load(context).firstOrNull { it.identifier == identifier }
+        if (identifier == MyStickers.IDENTIFIER) MyStickers.pack(context)
+        else assetPacks(context).firstOrNull { it.identifier == identifier }
 
     private fun parse(context: Context): List<StickerPack> {
         val json = context.assets.open(CONTENTS_FILE).bufferedReader().use { JSONObject(it.readText()) }

@@ -57,7 +57,7 @@ abstract class AddPackActivity : AppCompatActivity() {
     protected fun refreshPackStatus() {
         lifecycleScope.launch {
             val added = withContext(Dispatchers.IO) {
-                StickerPackLoader.load(this@AddPackActivity)
+                StickerPackLoader.packsForWhatsApp(this@AddPackActivity)
                     .filter { WhatsApp.isPackAdded(this@AddPackActivity, it.identifier) }
                     .map { it.identifier }
                     .toSet()

@@ -35,7 +35,7 @@ class StickerContentProvider : ContentProvider() {
         return true
     }
 
-    private fun packs() = StickerPackLoader.load(requireNotNull(context))
+    private fun packs() = StickerPackLoader.packsForWhatsApp(requireNotNull(context))
 
     override fun query(
         uri: Uri, projection: Array<String>?, selection: String?,
@@ -82,7 +82,7 @@ class StickerContentProvider : ContentProvider() {
         val known = fileName == pack.trayImageFile || pack.stickers.any { it.imageFileName == fileName }
         if (!known) return null
         return try {
-            requireNotNull(context).assets.openFd(pack.assetPath(fileName))
+            StickerFiles.openFd(requireNotNull(context), pack, fileName)
         } catch (e: IOException) {
             null
         }

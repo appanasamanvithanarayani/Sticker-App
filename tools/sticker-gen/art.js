@@ -368,4 +368,295 @@ const romance = {
   ],
 };
 
-module.exports = { packs: [love, comedy, romance], INK };
+
+// ---- props for the dialogue pack ----
+
+function clock(x, y, r) {
+  return `<circle cx="${x - r * 0.7}" cy="${y - r * 0.85}" r="${r * 0.32}" fill="#ffd166" ${stroke(5)}/>
+    <circle cx="${x + r * 0.7}" cy="${y - r * 0.85}" r="${r * 0.32}" fill="#ffd166" ${stroke(5)}/>
+    <circle cx="${x}" cy="${y}" r="${r}" fill="#fff" ${stroke()}/>
+    <path d="M${x} ${y} V${y - r * 0.6} M${x} ${y} L${x + r * 0.45} ${y + r * 0.2}" ${stroke(6)}/>`;
+}
+
+function pizza(x, y, s, rot = 0) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <path d="M-40 -46 Q0 -62 40 -46 L0 56 Z" fill="#ffd166" ${stroke(6)}/>
+    <path d="M-40 -46 Q0 -62 40 -46 L36 -34 Q0 -48 -36 -34 Z" fill="#e09f3e" ${stroke(5)}/>
+    <circle cx="-8" cy="-16" r="8" fill="#e5383b"/><circle cx="12" cy="4" r="7" fill="#e5383b"/><circle cx="-2" cy="24" r="6" fill="#e5383b"/>
+  </g>`;
+}
+
+function phone(x, y, s, rot = 0) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <rect x="-34" y="-60" width="68" height="120" rx="12" fill="#3a3a5a" ${stroke(6)}/>
+    <rect x="-26" y="-48" width="52" height="92" rx="5" fill="#cde7ff"/>
+    <rect x="-20" y="-38" width="36" height="12" rx="6" fill="#fff"/>
+    <path d="M2 -10 l6 6 l10 -12 M10 -10 l6 6 l10 -12" fill="none" stroke="#2b8cff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>`;
+}
+
+function cup(x, y, s, fill, steam = true) {
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    ${steam ? `<path d="M-14 -66 q-10 -14 0 -28 M14 -66 q-10 -14 0 -28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>` : ''}
+    <path d="M40 -30 q32 0 32 24 q0 24 -38 24" fill="none" stroke="${INK}" stroke-width="20" stroke-linecap="round"/>
+    <path d="M40 -30 q32 0 32 24 q0 24 -38 24" fill="none" stroke="${fill}" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-48 -50 H48 L38 44 Q0 56 -38 44 Z" fill="${fill}" ${stroke(6)}/>
+    <path d="M-44 -38 H44" stroke="#8d5524" stroke-width="10"/>
+  </g>`;
+}
+
+function note(x, y, s, rot) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <rect x="-34" y="-20" width="68" height="40" rx="6" fill="#95d5b2" ${stroke(5)}/>
+    <circle cx="0" cy="0" r="10" fill="#d8f3dc" ${stroke(4)}/>
+    <path d="M-34 -6 q-24 -24 -40 -6 q16 -2 40 14 M34 -6 q24 -24 40 -6 q-16 -2 -40 14" fill="#fff" ${stroke(4)}/>
+  </g>`;
+}
+
+function flower(x, y, s) {
+  const petals = [0, 72, 144, 216, 288].map((a) =>
+    `<ellipse cx="0" cy="-16" rx="10" ry="15" fill="#ffafcc" ${stroke(4)} transform="rotate(${a})"/>`).join('');
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M0 0 V70" stroke="${INK}" stroke-width="14" stroke-linecap="round"/><path d="M0 0 V70" stroke="#52b788" stroke-width="6" stroke-linecap="round"/>
+    ${petals}<circle cx="0" cy="0" r="10" fill="#ffd166" ${stroke(4)}/></g>`;
+}
+
+function bowl(x, y, s) {
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-56 -20 Q-30 -64 0 -50 Q30 -64 56 -20 Z" fill="#ffd166" ${stroke(6)}/>
+    <circle cx="-18" cy="-36" r="5" fill="#e09f3e"/><circle cx="14" cy="-40" r="5" fill="#e09f3e"/><circle cx="2" cy="-28" r="4" fill="#52b788"/>
+    <path d="M-66 -20 H66 Q60 40 0 40 Q-60 40 -66 -20 Z" fill="#c9184a" ${stroke(6)}/>
+  </g>`;
+}
+
+const SUNNY = (extra = '', faceOpts = {}, beanFill = SUN) =>
+  `${bean(256, 236, 150, 140, beanFill)}${face(256, 214, 1.8, faceOpts)}${extra}`;
+
+// Original lines in English, Hinglish and Telugu (written in English letters).
+// None of them are quotes from films.
+const dialogues = {
+  identifier: 'dialogues',
+  name: 'Filmy Dialogues',
+  version: '1',
+  accent: '#f77f00',
+  trayFrom: 8,
+  stickers: [
+    {
+      file: '01_late', bubble: ['Main late nahi hoon...', 'time hi jaldi aa gaya!'], emojis: ['⏰', '😅'],
+      alt: 'A bean holding a clock says I am not late, time came early',
+      art: () => SUNNY(clock(410, 150, 62), { eyes: 'dot', mouth: 'grimace', blush: false }),
+    },
+    {
+      file: '02_diet', bubble: ['Diet starts tomorrow.', 'Every tomorrow.'], emojis: ['🍕', '😋'],
+      alt: 'A bean happily holds pizza and says diet starts tomorrow',
+      art: () => SUNNY(pizza(410, 220, 1.4, 20), { eyes: 'happy', mouth: 'tongue' }),
+    },
+    {
+      file: '03_busy', bubble: ['Nenu busy...', 'kaani nee kosam', 'always free!'], emojis: ['😉', '❤️'],
+      alt: 'A winking heart says I am busy but always free for you',
+      art: () => `${heart(256, 230, 150, RED)}${face(256, 220, 1.6, { eyes: ['dot', 'happy'], mouth: 'smirk' })}`,
+    },
+    {
+      file: '04_seen', bubble: ['Seen karke reply nahi?', 'Ab drama hoga!'], emojis: ['📱', '😤'],
+      alt: 'A shocked bean stares at a phone that shows a seen message',
+      art: () => SUNNY(phone(410, 210, 1.3, 12), { eyes: 'shock', mouth: 'bigo', blush: false }),
+    },
+    {
+      file: '05_meeting', bubble: ['In a meeting...', 'with my bed.'], emojis: ['😴', '🛏️'],
+      alt: 'A sleepy bean tucked under a blanket says it is in a meeting with its bed',
+      art: () => `<rect x="70" y="150" width="160" height="70" rx="30" fill="#fff" ${stroke()}/>
+        ${bean(220, 220, 130, 110, '#ffe58a', -12)}${face(206, 200, 1.6, { eyes: 'sleepy', mouth: 'smile', rot: -12 })}
+        <path d="M60 260 Q256 220 470 270 L470 360 Q256 380 60 360 Z" fill="${LILAC}" ${stroke()}/>
+        <text class="mark" x="420" y="150" font-size="70" fill="#fff">Z</text>`,
+    },
+    {
+      file: '06_chai', bubble: ['Ek cup chai...', 'aur sab problems solved.'], emojis: ['☕', '😌'],
+      alt: 'A calm bean with a cup of chai says all problems are solved',
+      art: () => SUNNY(cup(410, 260, 1.2, '#fff'), { eyes: 'closed', mouth: 'smile' }),
+    },
+    {
+      file: '07_cute', bubble: ['Babu, nuvvu', 'chala cute!'], emojis: ['🥰', '😍'],
+      alt: 'A blushing heart with heart eyes says you are very cute',
+      art: () => `${sparkle(90, 110, 24)}${sparkle(420, 96, 20)}${heart(256, 230, 150, PINK)}
+        ${face(256, 220, 1.6, { eyes: 'heart', mouth: 'grin' })}`,
+    },
+    {
+      file: '08_salary', bubble: ['Salary aayi...', 'aur gayi.'], emojis: ['💸', '😭'],
+      alt: 'A crying bean watches its money fly away',
+      art: () => SUNNY(`${note(410, 110, 1.1, -14)}${note(100, 150, 0.9, 12)}
+        ${drop(178, 268, 1.2)}${drop(334, 268, 1.2)}`, { eyes: 'closed', mouth: 'frown', blush: false }),
+    },
+    {
+      file: '09_mass', bubble: ['Mood:', 'full mass!'], emojis: ['😎', '🔥'],
+      alt: 'A cool bean in sunglasses says the mood is full mass',
+      art: () => `${bean(256, 236, 150, 140, SUN)}${sunglasses(256, 200, 1.7)}${face(256, 214, 1.8, { eyes: 'none', mouth: 'smirk', blush: false })}
+        ${sparkle(90, 110, 26, '#fff')}${sparkle(424, 104, 22)}`,
+    },
+    {
+      file: '10_enti', bubble: ['Enti ra idi?!'], emojis: ['😳', '❓'],
+      alt: 'A shocked bean asks what is this',
+      art: () => SUNNY(`<text class="mark" x="80" y="150" font-size="96" fill="#fff" transform="rotate(-18 80 150)">?</text>
+        <text class="mark" x="432" y="140" font-size="96" fill="#fff" transform="rotate(16 432 140)">?</text>`,
+        { eyes: 'shock', mouth: 'o', blush: false }),
+    },
+    {
+      file: '11_sorry', bubble: ['Sorry bol diya na...', 'ab smile karo!'], emojis: ['🙏', '😊'],
+      alt: 'A shy lilac bean offers a flower and says sorry, now smile',
+      art: () => `${bean(226, 240, 140, 136, LILAC)}${face(216, 218, 1.7, { eyes: 'puppy', mouth: 'smile' })}
+        ${flower(412, 200, 1.5)}${limb('M340 270 Q380 280 400 260', LILAC, 18)}`,
+    },
+    {
+      file: '12_aakali', bubble: ['Aakali vestondi...', 'biryani please!'], emojis: ['🍛', '😋'],
+      alt: 'A hungry bean holds a bowl of biryani',
+      art: () => SUNNY(bowl(256, 400, 1.3), { eyes: 'happy', mouth: 'tongue' }),
+    },
+  ],
+};
+
+// ---- props for the movie pack ----
+
+function popcorn(x, y, s, withFace = false) {
+  const kernels = [[-36, -54], [-12, -64], [14, -62], [38, -52], [-24, -40], [2, -44], [26, -38]]
+    .map(([kx, ky]) => `<circle cx="${kx}" cy="${ky}" r="17" fill="#fff8e1" ${stroke(5)}/>`).join('');
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    ${kernels}
+    <path d="M-56 -36 H56 L42 70 H-42 Z" fill="#fff" ${stroke(6)}/>
+    <path d="M-34 -36 L-26 70 M0 -36 V70 M34 -36 L26 70" stroke="#e5383b" stroke-width="12"/>
+    <path d="M-56 -36 H56 L42 70 H-42 Z" fill="none" ${stroke(6)}/>
+    ${withFace ? face(0, 8, 0.9, { eyes: 'happy', mouth: 'tongue' }) : ''}
+  </g>`;
+}
+
+function clapper(x, y, s, rot = 0, { board = '#2b2d42', lines = true } = {}) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <rect x="-60" y="-24" width="120" height="80" rx="8" fill="${board}" ${stroke(6)}/>
+    <g transform="rotate(-16 -60 -24)">
+      <rect x="-60" y="-50" width="120" height="26" rx="4" fill="#fff" ${stroke(6)}/>
+      <path d="M-40 -50 l-14 26 M-10 -50 l-14 26 M20 -50 l-14 26 M50 -50 l-14 26" stroke="#2b2d42" stroke-width="12"/>
+      <rect x="-60" y="-50" width="120" height="26" rx="4" fill="none" ${stroke(6)}/>
+    </g>
+    ${lines ? `<path d="M-44 4 H44 M-44 26 H20" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.8"/>` : ''}
+  </g>`;
+}
+
+function ticket(x, y, s, rot = 0, fill = '#ffd166', lines = true) {
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">
+    <path d="M-60 -32 H60 V-12 A12 12 0 0 0 60 12 V32 H-60 V12 A12 12 0 0 0 -60 -12 Z" fill="${fill}" ${stroke(6)}/>
+    <path d="M-30 -32 V32" stroke="${INK}" stroke-width="4" stroke-dasharray="6 6"/>
+    ${lines ? `<path d="M-10 -8 H40 M-10 10 H26" ${stroke(5)}/>` : ''}
+  </g>`;
+}
+
+function tv(x, y, s) {
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-24 -66 L0 -46 L24 -66" fill="none" ${stroke(6)}/>
+    <rect x="-70" y="-46" width="140" height="100" rx="16" fill="#8d99ae" ${stroke(6)}/>
+    <rect x="-56" y="-34" width="112" height="76" rx="8" fill="#cde7ff" ${stroke(5)}/>
+    <path d="M-14 -16 L18 4 L-14 24 Z" fill="#e5383b" ${stroke(4)}/>
+    <path d="M-40 54 L-48 70 M40 54 L48 70" ${stroke(6)}/>
+  </g>`;
+}
+
+function tissues(x, y, s) {
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-10 -34 Q-30 -70 4 -76 Q-4 -56 22 -50 Q10 -40 10 -34 Z" fill="#fff" ${stroke(5)}/>
+    <rect x="-56" y="-34" width="112" height="70" rx="10" fill="#a2d2ff" ${stroke(6)}/>
+    <rect x="-26" y="-34" width="52" height="12" rx="6" fill="#5c7cfa" ${stroke(4)}/>
+    ${heart(0, 8, 14, PINK, { sw: 4 })}
+  </g>`;
+}
+
+function trophy(x, y, s) {
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    <path d="M-60 -80 Q-96 -80 -88 -46 Q-80 -14 -40 -10 M60 -80 Q96 -80 88 -46 Q80 -14 40 -10" fill="none" stroke="${INK}" stroke-width="20" stroke-linecap="round"/>
+    <path d="M-60 -80 Q-96 -80 -88 -46 Q-80 -14 -40 -10 M60 -80 Q96 -80 88 -46 Q80 -14 40 -10" fill="none" stroke="#ffd166" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-64 -96 H64 Q64 10 0 24 Q-64 10 -64 -96 Z" fill="#ffd166" ${stroke(7)}/>
+    <rect x="-14" y="22" width="28" height="34" fill="#f4a261" ${stroke(6)}/>
+    <rect x="-52" y="56" width="104" height="30" rx="8" fill="#8d5524" ${stroke(6)}/>
+    ${face(0, -50, 1.1, { eyes: 'happy', mouth: 'grin' })}
+  </g>`;
+}
+
+function mustache(x, y, s) {
+  return `<path d="M0 0 C-14 -14 -40 -14 -54 4 C-40 0 -26 8 -12 10 Q0 6 0 0 Q0 6 12 10 C26 8 40 0 54 4 C40 -14 14 -14 0 0 Z"
+    transform="translate(${x} ${y}) scale(${s})" fill="#6b3f2a" stroke="${INK}" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>`;
+}
+
+const movies = {
+  identifier: 'movies',
+  name: 'Movie Mania',
+  version: '1',
+  accent: '#e63946',
+  trayFrom: 1,
+  stickers: [
+    {
+      file: '01_fdfs', bubble: ['First Day', 'First Show!'], emojis: ['🎟️', '🤩'],
+      alt: 'An excited bean waves two movie tickets for the first day first show',
+      art: () => SUNNY(`${ticket(96, 150, 0.95, -24)}${ticket(420, 140, 0.95, 20, '#ffafcc')}`, { eyes: 'happy', mouth: 'laugh' }),
+    },
+    {
+      file: '02_interval', bubble: ['Interval...', 'popcorn time!'], emojis: ['🍿', '😋'],
+      alt: 'A happy popcorn bucket says it is interval, popcorn time',
+      art: () => `${popcorn(256, 250, 2.3, true)}${sparkle(80, 120, 22)}${sparkle(440, 110, 20, '#fff')}`,
+    },
+    {
+      file: '03_hero_entry', text: 'HERO ENTRY!', emojis: ['😎', '🔥'],
+      alt: 'A bean in sunglasses stands in a spotlight for its hero entry',
+      art: () => `<path d="M206 20 H306 L430 380 H82 Z" fill="#fff3b0" opacity="0.9"/>
+        ${bean(256, 250, 140, 130, SUN)}${sunglasses(256, 218, 1.6)}${face(256, 230, 1.7, { eyes: 'none', mouth: 'smirk', blush: false })}
+        ${sparkle(70, 160, 26)}${sparkle(442, 170, 26)}${sparkle(110, 320, 16, '#fff')}${sparkle(404, 330, 16, '#fff')}`,
+    },
+    {
+      file: '04_villain', text: 'MWAHAHA!', emojis: ['😈', '😂'],
+      alt: 'A lilac bean with a curly mustache laughs like a movie villain',
+      art: () => `${bean(256, 236, 150, 140, LILAC)}
+        ${face(256, 214, 1.8, { eyes: 'dot', mouth: 'laugh', blush: false })}
+        <path d="M176 166 L236 192 M336 166 L276 192" ${stroke(10)}/>
+        ${mustache(256, 238, 1.7)}`,
+    },
+    {
+      file: '05_twist', bubble: ['Climax lo', 'twist enti?!'], emojis: ['🎬', '😱'],
+      alt: 'A shocked bean holds a clapperboard after a climax twist',
+      art: () => SUNNY(clapper(410, 200, 1.1, 14), { eyes: 'shock', mouth: 'bigo', blush: false }),
+    },
+    {
+      file: '06_blockbuster', text: 'BLOCKBUSTER!', emojis: ['🏆', '🎉'],
+      alt: 'A smiling gold trophy celebrates a blockbuster',
+      art: () => `${trophy(256, 250, 1.6)}${sparkle(80, 110, 26)}${sparkle(436, 100, 24)}${sparkle(440, 300, 16, '#fff')}`,
+    },
+    {
+      file: '07_housefull', text: 'HOUSEFULL!', emojis: ['🎫', '🥳'],
+      alt: 'A cheerful movie ticket celebrates a housefull show',
+      art: () => `${ticket(256, 230, 3, -8, '#ffd166', false)}${face(296, 226, 1.5, { eyes: 'happy', mouth: 'grin', rot: -8 })}
+        ${sparkle(76, 90, 22)}${sparkle(440, 100, 22, '#fff')}`,
+    },
+    {
+      file: '08_ott', bubble: ['Waiting for', 'OTT release...'], emojis: ['📺', '😴'],
+      alt: 'A sleepy bean waits in front of a TV for the streaming release',
+      art: () => SUNNY(tv(410, 230, 1.05), { eyes: 'sleepy', mouth: 'flat', blush: false }, '#ffe58a'),
+    },
+    {
+      file: '09_emotional', bubble: ['Emotional scene...', 'tissue please!'], emojis: ['😭', '🤧'],
+      alt: 'A crying bean reaches for a box of tissues during an emotional scene',
+      art: () => SUNNY(`${tissues(414, 300, 1.1)}${drop(176, 268, 1.3)}${drop(336, 268, 1.3)}`, { eyes: 'closed', mouth: 'wavy' }),
+    },
+    {
+      file: '10_cut', text: 'CUT! RETAKE!', emojis: ['🎬', '🙄'],
+      alt: 'A grumpy clapperboard calls cut and retake',
+      art: () => `${clapper(256, 220, 2.6, -6, { board: '#9aa5c4', lines: false })}${face(256, 262, 1.4, { eyes: 'side', mouth: 'flat', blush: false, body: '#9aa5c4', rot: -6 })}`,
+    },
+    {
+      file: '11_paisa_vasool', text: 'PAISA VASOOL!', emojis: ['💰', '😁'],
+      alt: 'A delighted bean says the movie was worth every penny',
+      art: () => SUNNY(`${note(90, 130, 0.9, -14)}${note(424, 120, 0.9, 16)}${sparkle(256, 60, 22)}`, { eyes: 'happy', mouth: 'grin' }),
+    },
+    {
+      file: '12_no_spoilers', bubble: ['No spoilers,', 'please!'], emojis: ['🙉', '🤐'],
+      alt: 'A bean covers its ears and squeezes its eyes shut to avoid spoilers',
+      art: () => `${bean(256, 236, 150, 140, SUN)}${face(256, 214, 1.8, { eyes: 'laugh', mouth: 'wavy', blush: false })}
+        <circle cx="104" cy="214" r="34" fill="${SUN}" ${stroke()}/><circle cx="408" cy="214" r="34" fill="${SUN}" ${stroke()}/>`,
+    },
+  ],
+};
+
+module.exports = { packs: [love, comedy, romance, dialogues, movies], INK };

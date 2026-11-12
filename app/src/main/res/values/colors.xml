@@ -4,4 +4,6 @@
     <color name="love">#FFE5385F</color>
     <color name="romance">#FF9D4EDD</color>
     <color name="launcher_background">#FFFF4D6D</color>
+    <color name="caption_yellow">#FFFFD23F</color>
+    <color name="caption_pink">#FFFF4D6D</color>
 </resources>

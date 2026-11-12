@@ -26,6 +26,7 @@ html, body { margin: 0; background: transparent; }
 text.cap, text.mark { font-family: Fredoka; font-weight: 700; text-anchor: middle;
   stroke: ${INK}; stroke-width: 12px; stroke-linejoin: round; paint-order: stroke; letter-spacing: 1px; }
 text.mark { stroke-width: 9px; }
+text.bubble { font-family: Fredoka; font-weight: 700; text-anchor: middle; }
 </style></head><body><div id="stage"></div><canvas id="c"></canvas></body></html>`;
 
 // White die-cut border and a soft drop shadow around everything, like a printed sticker.
@@ -40,7 +41,31 @@ const FILTER = `<filter id="sticker" x="-5%" y="-5%" width="110%" height="110%">
   <feMerge><feMergeNode in="shadow"/><feMergeNode in="white"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>`;
 
+// Dialogue stickers: a speech bubble on top, the character underneath.
+function dialogueSvg(sticker, accent) {
+  const lines = sticker.bubble;
+  const lineH = 52;
+  const top = 26;
+  const h = lines.length * lineH + 44;
+  const text = lines
+    .map((l, i) => `<tspan x="256" y="${top + 54 + i * lineH}">${l}</tspan>`)
+    .join('');
+  // Fit the character into the space between the bubble's tail and the bottom margin.
+  const start = top + h + 20, end = 496;
+  const scale = Math.min(0.7, (end - start) / 330);
+  const cy = (start + end) / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <defs>${FILTER}</defs><g filter="url(#sticker)">
+      <g transform="translate(256 ${cy}) scale(${scale}) translate(-256 -240)">${sticker.art()}</g>
+      <path d="M44 ${top} H468 Q484 ${top} 484 ${top + 16} V${top + h - 16} Q484 ${top + h} 468 ${top + h}
+        H300 L270 ${top + h + 34} L262 ${top + h} H44 Q28 ${top + h} 28 ${top + h - 16} V${top + 16} Q28 ${top} 44 ${top} Z"
+        fill="#fff" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>
+      <text class="bubble" font-size="44" fill="${INK}">${text}</text>
+    </g></svg>`;
+}
+
 function svgFor(sticker, accent, withText) {
+  if (sticker.bubble && withText) return dialogueSvg(sticker, accent);
   // With a caption the art is drawn smaller and higher so the text fits underneath.
   const art = withText
     ? `<g transform="translate(256 206) scale(0.84) translate(-256 -226)">${sticker.art()}</g>
@@ -61,6 +86,13 @@ async function render(page, svg) {
         t.setAttribute('font-size', size);
       }
       t.style.strokeWidth = Math.max(6, size * 0.13) + 'px';
+    }
+    for (const t of document.querySelectorAll('text.bubble')) {
+      let size = parseFloat(t.getAttribute('font-size'));
+      while (t.getBBox().width > 420 && size > 24) {
+        size -= 1;
+        t.setAttribute('font-size', size);
+      }
     }
   }, svg);
   await page.evaluate(() => document.fonts.ready);
@@ -149,8 +181,9 @@ async function main() {
   // Contact sheet: one row per pack on a soft background.
   fs.mkdirSync(DOCS, { recursive: true });
   const cell = 150;
+  const perRow = Math.max(...packs.map((p) => p.stickers.length));
   const rows = packs.map((p) => sheet.filter((s) => s.pack === p.name));
-  await page.setViewportSize({ width: cell * 8 + 40, height: rows.length * (cell + 44) + 20 });
+  await page.setViewportSize({ width: cell * perRow + 40, height: rows.length * (cell + 44) + 20 });
   await page.setContent(`<body style="margin:0;padding:10px 20px;background:#fff4f7;font:600 20px sans-serif;color:${INK}">
     ${rows.map((r) => `<div style="margin:6px 0 2px">${r[0].pack}</div><div style="display:flex">
       ${r.map((s) => `<img width="${cell}" height="${cell}" src="data:image/png;base64,${s.b64}">`).join('')}</div>`).join('')}

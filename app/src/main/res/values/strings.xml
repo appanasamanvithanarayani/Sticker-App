@@ -14,6 +14,64 @@
     <string name="whatsapp_too_old">Your version of WhatsApp can\'t add sticker packs. Update WhatsApp and try again.</string>
     <string name="add_failed_title">Couldn\'t add the pack</string>
     <string name="add_failed_message">WhatsApp said: %1$s</string>
+    <string name="create">Create</string>
+    <string name="make_sticker">Make a sticker</string>
+    <string name="my_stickers">My Stickers</string>
+    <string name="my_stickers_publisher">You</string>
+    <string name="my_sticker_alt">A sticker made from a photo</string>
+    <string name="my_stickers_empty">Make stickers from your own photos</string>
+    <string name="my_stickers_hint">Tap a sticker to see it, or long-press to delete it.</string>
+    <string name="my_stickers_full">My Stickers is full (%1$d stickers). Delete one to make room.</string>
+    <string name="choose_photo">Photo</string>
+    <string name="remove_background">Remove background</string>
+    <string name="preview">Sticker preview</string>
+    <string name="privacy_note">Your photo stays on your phone.</string>
+    <string name="caption_hint">Caption (optional)</string>
+    <string name="quick_captions_label">Quick captions</string>
+    <string name="caption_color">Caption colour</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_white">White</string>
+    <string name="color_pink">Pink</string>
+    <string name="emoji_label">Emoji (helps WhatsApp suggest this sticker)</string>
+    <string name="save_sticker">Save sticker</string>
+    <string name="sticker_saved">Saved to My Stickers</string>
+    <string name="loading_photo">Loading photo…</string>
+    <string name="photo_failed">Couldn\'t open that photo. Try another one.</string>
+    <string name="removing_background">Removing background…</string>
+    <string name="cutout_failed">Couldn\'t remove the background, so the full photo is used.</string>
+    <string name="delete">Delete</string>
+    <string name="delete_title">Delete this sticker?</string>
+    <string name="delete_message">It will also disappear from WhatsApp the next time WhatsApp refreshes the pack.</string>
+    <plurals name="make_more">
+        <item quantity="one">Make %1$d more to add to WhatsApp</item>
+        <item quantity="other">Make %1$d more to add to WhatsApp</item>
+    </plurals>
+    <string-array name="quick_captions">
+        <item>LOL</item>
+        <item>Enti ra idi?!</item>
+        <item>Bas kar bhai!</item>
+        <item>Mood: full mass!</item>
+        <item>Ayyo!</item>
+        <item>Hero entry!</item>
+        <item>Paisa vasool!</item>
+        <item>Love you</item>
+        <item>Miss you</item>
+        <item>Super!</item>
+        <item>Sorry!</item>
+        <item>Good night</item>
+        <item>Aakali vestondi</item>
+    </string-array>
+    <string-array name="sticker_emojis">
+        <item>😂</item>
+        <item>❤️</item>
+        <item>😍</item>
+        <item>😎</item>
+        <item>😮</item>
+        <item>😢</item>
+        <item>😡</item>
+        <item>🙏</item>
+        <item>🎬</item>
+    </string-array>
     <plurals name="sticker_count">
         <item quantity="one">%1$d sticker · %2$s</item>
         <item quantity="other">%1$d stickers · %2$s</item>
