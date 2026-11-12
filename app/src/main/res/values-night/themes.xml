@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Stickers" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#FFFFB1C4</item>
+        <item name="colorOnPrimary">#FF5F1130</item>
+        <item name="colorPrimaryContainer">#FF7D2946</item>
+        <item name="colorOnPrimaryContainer">#FFFFD9E0</item>
+        <item name="colorSecondary">#FFD7BAFF</item>
+        <item name="android:colorBackground">#FF1E1418</item>
+        <item name="colorSurface">#FF1E1418</item>
+        <item name="colorSurfaceContainer">#FF2B1F24</item>
+        <item name="colorSurfaceContainerLow">#FF2B1F24</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

@@ -1,0 +1,243 @@
+{
+  "android_play_store_link": "",
+  "ios_app_store_link": "",
+  "sticker_packs": [
+    {
+      "identifier": "love",
+      "name": "Love Bites",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_love_you.webp",
+          "emojis": [
+            "❤️",
+            "😍"
+          ],
+          "accessibility_text": "A smiling red heart with rosy cheeks says love you"
+        },
+        {
+          "image_file": "02_hugs.webp",
+          "emojis": [
+            "🤗",
+            "❤️"
+          ],
+          "accessibility_text": "A big heart hugs a little pink heart"
+        },
+        {
+          "image_file": "03_crushing.webp",
+          "emojis": [
+            "😍",
+            "💘"
+          ],
+          "accessibility_text": "A pink heart with heart-shaped eyes is crushing"
+        },
+        {
+          "image_file": "04_miss_you.webp",
+          "emojis": [
+            "🥺",
+            "💔"
+          ],
+          "accessibility_text": "A sad little heart with puppy eyes and a tear says miss you"
+        },
+        {
+          "image_file": "05_xoxo.webp",
+          "emojis": [
+            "😘",
+            "💋"
+          ],
+          "accessibility_text": "A heart blows a kiss with a tiny heart"
+        },
+        {
+          "image_file": "06_aww.webp",
+          "emojis": [
+            "🥰",
+            "☺️"
+          ],
+          "accessibility_text": "A blushing pale pink heart covers its cheeks and says aww"
+        },
+        {
+          "image_file": "07_ouch.webp",
+          "emojis": [
+            "💔",
+            "🤕"
+          ],
+          "accessibility_text": "A cracked heart with a bandage and dizzy eyes says ouch"
+        },
+        {
+          "image_file": "08_youre_mine.webp",
+          "emojis": [
+            "😉",
+            "👑"
+          ],
+          "accessibility_text": "A winking heart wearing a gold crown says you are mine"
+        }
+      ]
+    },
+    {
+      "identifier": "comedy",
+      "name": "LOL Beans",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_lol.webp",
+          "emojis": [
+            "😂",
+            "🤣"
+          ],
+          "accessibility_text": "A yellow bean laughs so hard it cries"
+        },
+        {
+          "image_file": "02_rofl.webp",
+          "emojis": [
+            "🤣",
+            "😆"
+          ],
+          "accessibility_text": "A yellow bean rolls on the floor laughing"
+        },
+        {
+          "image_file": "03_oops.webp",
+          "emojis": [
+            "😬",
+            "😅"
+          ],
+          "accessibility_text": "A yellow bean grimaces with a sweat drop and says oops"
+        },
+        {
+          "image_file": "04_cool_story.webp",
+          "emojis": [
+            "😎",
+            "🙄"
+          ],
+          "accessibility_text": "A yellow bean in sunglasses smirks and says cool story"
+        },
+        {
+          "image_file": "05_what.webp",
+          "emojis": [
+            "😳",
+            "😲"
+          ],
+          "accessibility_text": "A shocked yellow bean with wide eyes says what"
+        },
+        {
+          "image_file": "06_jk.webp",
+          "emojis": [
+            "😜",
+            "😝"
+          ],
+          "accessibility_text": "A yellow bean winks and sticks out its tongue"
+        },
+        {
+          "image_file": "07_bored.webp",
+          "emojis": [
+            "😴",
+            "🥱"
+          ],
+          "accessibility_text": "A sleepy pale yellow bean is bored"
+        },
+        {
+          "image_file": "08_sus.webp",
+          "emojis": [
+            "🤨",
+            "👀"
+          ],
+          "accessibility_text": "A yellow bean gives a suspicious side eye"
+        }
+      ]
+    },
+    {
+      "identifier": "romance",
+      "name": "Sweet Nothings",
+      "publisher": "Love Comedy Romance Stickers",
+      "tray_image_file": "tray.png",
+      "image_data_version": "1",
+      "avoid_cache": false,
+      "publisher_email": "",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "animated_sticker_pack": false,
+      "stickers": [
+        {
+          "image_file": "01_together.webp",
+          "emojis": [
+            "💑",
+            "🥰"
+          ],
+          "accessibility_text": "A pink bean and a lilac bean hold hands under a heart"
+        },
+        {
+          "image_file": "02_mwah.webp",
+          "emojis": [
+            "😘",
+            "💏"
+          ],
+          "accessibility_text": "Two beans share a kiss with a little heart above"
+        },
+        {
+          "image_file": "03_for_you.webp",
+          "emojis": [
+            "🌹",
+            "💐"
+          ],
+          "accessibility_text": "A shy lilac bean offers a red rose"
+        },
+        {
+          "image_file": "04_good_night.webp",
+          "emojis": [
+            "🌙",
+            "😴"
+          ],
+          "accessibility_text": "A sleeping crescent moon among twinkling stars says good night"
+        },
+        {
+          "image_file": "05_date.webp",
+          "emojis": [
+            "☕",
+            "💕"
+          ],
+          "accessibility_text": "Two smiling coffee cups clink together with heart-shaped steam"
+        },
+        {
+          "image_file": "06_forever.webp",
+          "emojis": [
+            "💍",
+            "💖"
+          ],
+          "accessibility_text": "An open ring box shows a sparkling diamond ring"
+        },
+        {
+          "image_file": "07_thinking_of_you.webp",
+          "emojis": [
+            "💭",
+            "💗"
+          ],
+          "accessibility_text": "A dreamy pink bean thinks about a heart"
+        },
+        {
+          "image_file": "08_always.webp",
+          "emojis": [
+            "🎈",
+            "❤️"
+          ],
+          "accessibility_text": "A lilac bean holds a heart-shaped balloon"
+        }
+      ]
+    }
+  ]
+}
