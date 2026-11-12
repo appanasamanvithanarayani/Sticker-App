@@ -22,7 +22,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.ai.type.APINotConfiguredException
+import com.google.firebase.ai.type.InvalidAPIKeyException
 import com.google.firebase.ai.type.PromptBlockedException
+import com.google.firebase.ai.type.QuotaExceededException
+import com.google.firebase.ai.type.RequestTimeoutException
+import com.google.firebase.ai.type.ServerException
+import com.google.firebase.ai.type.ServiceDisabledException
+import com.google.firebase.ai.type.UnsupportedUserLocationException
 import com.google.firebase.ai.type.ResponseStoppedException
 import com.lovecomedyromance.stickers.databinding.ActivityAiStudioBinding
 import com.lovecomedyromance.stickers.databinding.ItemAiStickerBinding
@@ -134,10 +141,20 @@ class AiStudioActivity : AddPackActivity() {
 
         private fun errorMessage(app: Application, e: Exception): String {
             android.util.Log.e("AiStudio", "Generation failed", e)
-            return when (e) {
-                is PromptBlockedException, is ResponseStoppedException -> app.getString(R.string.ai_error_blocked)
-                else -> app.getString(R.string.ai_error_generic)
+            val reason = when (e) {
+                is PromptBlockedException, is ResponseStoppedException -> R.string.ai_error_blocked
+                is APINotConfiguredException -> R.string.ai_error_not_enabled
+                is ServiceDisabledException -> R.string.ai_error_service_disabled
+                is InvalidAPIKeyException -> R.string.ai_error_api_key
+                is QuotaExceededException -> R.string.ai_error_quota
+                is UnsupportedUserLocationException -> R.string.ai_error_location
+                is RequestTimeoutException -> R.string.ai_error_timeout
+                is ServerException -> R.string.ai_error_server
+                else -> R.string.ai_error_generic
             }
+            // Technical details help when reporting a problem.
+            val details = "${e.javaClass.simpleName}: ${e.message.orEmpty().take(400)}"
+            return app.getString(reason) + "\n\n" + app.getString(R.string.ai_error_details, details)
         }
 
         // Cut out the drawing and add the border and caption.

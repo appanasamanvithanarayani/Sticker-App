@@ -96,6 +96,14 @@
     <string name="ai_status_drawing">Drawing sticker %1$d of %2$d…</string>
     <string name="ai_error_blocked">The AI couldn\'t make stickers for that description. Try describing it differently.</string>
     <string name="ai_error_generic">Couldn\'t make stickers right now. Check your internet connection and try again.</string>
+    <string name="ai_error_not_enabled">AI isn\'t switched on for this app yet. In the Firebase console, open AI Logic and enable the Gemini Developer API.</string>
+    <string name="ai_error_service_disabled">The Gemini API is turned off for this Firebase project. Enable "Firebase AI Logic API" and "Generative Language API" in the Google Cloud console for the project.</string>
+    <string name="ai_error_api_key">Firebase rejected the app\'s API key. Check the API key restrictions for this project in the Google Cloud console.</string>
+    <string name="ai_error_quota">Today\'s free AI limit for this project has been used up. Try again later.</string>
+    <string name="ai_error_location">AI stickers aren\'t available in your region yet.</string>
+    <string name="ai_error_timeout">The AI took too long to answer. Please try again.</string>
+    <string name="ai_error_server">The AI service returned an error. The model may not be available for this project.</string>
+    <string name="ai_error_details">Details: %1$s</string>
     <string name="ai_error_nothing">No stickers came back this time. Please try again.</string>
     <string name="ai_keep">Keep</string>
     <string name="ai_report">Report</string>

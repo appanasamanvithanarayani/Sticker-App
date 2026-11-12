@@ -53,7 +53,7 @@ The app calls Gemini through [Firebase AI Logic](https://firebase.google.com/doc
 2. Download `google-services.json` and put it in `app/` for local builds. It is in `.gitignore`, so it stays out of this public repo. For GitHub Actions builds, save the file's contents as a repository secret named `GOOGLE_SERVICES_JSON` (Settings → Secrets and variables → Actions); the workflow writes it into `app/` before building.
 3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. The free character mode works on the Spark plan; new AI drawings need the pay-as-you-go **Blaze** plan.
 4. Turn on **App Check** with **Play Integrity**, and enforce it for AI Logic so only your app can use your quota. For debug builds, copy the debug token the app prints to Logcat into App Check's **Manage debug tokens**.
-5. Check that the model names in `AiStickerGenerator.kt` (`TEXT_MODEL`, `IMAGE_MODEL`) are still listed on the [supported models page](https://firebase.google.com/docs/ai-logic/models); Google retires old models regularly.
+5. Check that the model names in `AiStickerGenerator.kt` (`TEXT_MODELS`, `IMAGE_MODELS`; the first one found is used) are still listed on the [supported models page](https://firebase.google.com/docs/ai-logic/models); Google retires old models regularly.
 6. Set `support_email` in `app/src/main/res/values/strings.xml` so sticker reports reach you.
 
 Builds without `google-services.json` still work; the AI screen just says it isn't set up.
