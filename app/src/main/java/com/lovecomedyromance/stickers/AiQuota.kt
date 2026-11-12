@@ -3,21 +3,29 @@ package com.lovecomedyromance.stickers
 import android.content.Context
 import java.time.LocalDate
 
-/** A simple per-device daily limit, so one user can't run up the Gemini bill. */
+/** Simple per-device daily limits, so one user can't use up the whole Gemini quota. */
 object AiQuota {
-    const val REQUESTS_PER_DAY = 5
-    private const val PREFS = "ai_quota"
 
-    fun remaining(context: Context): Int {
-        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        val today = LocalDate.now().toString()
-        return if (prefs.getString("day", null) == today) REQUESTS_PER_DAY - prefs.getInt("used", 0) else REQUESTS_PER_DAY
+    enum class Kind(val perDay: Int) {
+        /** Captions on the app's own characters: one cheap text request. */
+        FREE(20),
+        /** Gemini drawings: one text request plus an image request per sticker. */
+        DRAWN(5),
     }
 
-    fun use(context: Context) {
+    private const val PREFS = "ai_quota"
+
+    fun remaining(context: Context, kind: Kind): Int {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val today = LocalDate.now().toString()
-        val used = if (prefs.getString("day", null) == today) prefs.getInt("used", 0) else 0
-        prefs.edit().putString("day", today).putInt("used", used + 1).apply()
+        val used = if (prefs.getString("day_${kind.name}", null) == today) prefs.getInt("used_${kind.name}", 0) else 0
+        return kind.perDay - used
+    }
+
+    fun use(context: Context, kind: Kind) {
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val today = LocalDate.now().toString()
+        val used = if (prefs.getString("day_${kind.name}", null) == today) prefs.getInt("used_${kind.name}", 0) else 0
+        prefs.edit().putString("day_${kind.name}", today).putInt("used_${kind.name}", used + 1).apply()
     }
 }

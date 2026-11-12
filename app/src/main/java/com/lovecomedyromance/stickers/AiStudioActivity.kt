@@ -52,12 +52,16 @@ class AiStudioActivity : AddPackActivity() {
         private val typeface: Typeface = ResourcesCompat.getFont(app, R.font.fredoka_bold) ?: Typeface.DEFAULT_BOLD
         private var nextId = 0
 
-        fun generate(scenario: String, genre: String, language: String, style: String) {
+        fun generate(scenario: String, genre: String, language: String, style: String, drawn: Boolean) {
             val app = getApplication<Application>()
             if (state.value.busy) return
-            AiQuota.use(app)
+            AiQuota.use(app, if (drawn) AiQuota.Kind.DRAWN else AiQuota.Kind.FREE)
             state.value = UiState(busy = true, status = app.getString(R.string.ai_status_planning), progress = 5)
             viewModelScope.launch {
+                if (!drawn) {
+                    generateWithCharacters(app, scenario, genre, language)
+                    return@launch
+                }
                 try {
                     val ideas = AiStickerGenerator.planIdeas(scenario, genre, language)
                     ideas.forEachIndexed { index, idea ->
@@ -74,6 +78,7 @@ class AiStudioActivity : AddPackActivity() {
                         } catch (e: CancellationException) {
                             throw e
                         } catch (e: Exception) {
+                            android.util.Log.e("AiStudio", "Drawing failed", e)
                             null
                         }
                         if (sticker != null) {
@@ -85,18 +90,53 @@ class AiStudioActivity : AddPackActivity() {
                             busy = false,
                             progress = 100,
                             status = "",
-                            error = if (it.results.isEmpty()) app.getString(R.string.ai_error_nothing) else null,
+                            // Drawings usually fail on the free Spark plan; point to the free mode.
+                            error = if (it.results.isEmpty()) app.getString(R.string.ai_error_drawing) else null,
                         )
                     }
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
-                    val message = when (e) {
-                        is PromptBlockedException, is ResponseStoppedException -> app.getString(R.string.ai_error_blocked)
-                        else -> app.getString(R.string.ai_error_generic)
-                    }
-                    state.update { it.copy(busy = false, status = "", error = message) }
+                    state.update { it.copy(busy = false, status = "", error = errorMessage(app, e)) }
                 }
+            }
+        }
+
+        // Free mode: Gemini writes captions and picks from the app's own characters.
+        private suspend fun generateWithCharacters(app: Application, scenario: String, genre: String, language: String) {
+            try {
+                val characters = withContext(Dispatchers.IO) { AiCharacters.all(app) }
+                val ideas = AiStickerGenerator.planWithCharacters(scenario, genre, language, characters)
+                state.update { it.copy(progress = 60) }
+                val made = withContext(Dispatchers.Default) {
+                    ideas.mapNotNull { idea ->
+                        val character = characters.firstOrNull { it.id == idea.character } ?: return@mapNotNull null
+                        val art = AiCharacters.bitmap(app, character)
+                        val sticker = StickerComposer.compose(art, true, idea.caption, app.getColor(R.color.caption_yellow), typeface)
+                        Result(nextId++, idea, sticker)
+                    }
+                }
+                state.update {
+                    it.copy(
+                        busy = false,
+                        progress = 100,
+                        status = "",
+                        results = it.results + made,
+                        error = if (made.isEmpty()) app.getString(R.string.ai_error_nothing) else null,
+                    )
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                state.update { it.copy(busy = false, status = "", error = errorMessage(app, e)) }
+            }
+        }
+
+        private fun errorMessage(app: Application, e: Exception): String {
+            android.util.Log.e("AiStudio", "Generation failed", e)
+            return when (e) {
+                is PromptBlockedException, is ResponseStoppedException -> app.getString(R.string.ai_error_blocked)
+                else -> app.getString(R.string.ai_error_generic)
             }
         }
 
@@ -154,6 +194,9 @@ class AiStudioActivity : AddPackActivity() {
         fillChips(binding.genres, R.array.ai_genres)
         fillChips(binding.languages, R.array.ai_languages)
         fillChips(binding.styles, R.array.ai_styles)
+        binding.modes.check(R.id.modeFree)
+        binding.modes.setOnCheckedStateChangeListener { _, _ -> updateMode() }
+        updateMode()
         resources.getStringArray(R.array.ai_examples).forEach { example ->
             binding.examples.addView(Chip(this).apply {
                 text = example
@@ -171,6 +214,22 @@ class AiStudioActivity : AddPackActivity() {
                 model.state.collect { render(it) }
             }
         }
+    }
+
+    private fun drawnMode() = binding.modes.checkedChipId == R.id.modeDrawn
+
+    private fun quotaKind() = if (drawnMode()) AiQuota.Kind.DRAWN else AiQuota.Kind.FREE
+
+    private fun updateMode() {
+        binding.styleLabel.isVisible = drawnMode()
+        binding.styles.isVisible = drawnMode()
+        binding.modeHint.setText(if (drawnMode()) R.string.ai_mode_drawn_hint else R.string.ai_mode_free_hint)
+        updateRemaining()
+    }
+
+    private fun updateRemaining() {
+        val kind = quotaKind()
+        binding.remaining.text = getString(R.string.ai_remaining, AiQuota.remaining(this, kind).coerceAtLeast(0), kind.perDay)
     }
 
     private fun fillChips(group: ChipGroup, array: Int) {
@@ -194,11 +253,14 @@ class AiStudioActivity : AddPackActivity() {
             return
         }
         binding.scenarioLayout.error = null
-        if (AiQuota.remaining(this) <= 0) {
-            Toast.makeText(this, getString(R.string.ai_quota_used, AiQuota.REQUESTS_PER_DAY), Toast.LENGTH_LONG).show()
+        val kind = quotaKind()
+        if (AiQuota.remaining(this, kind) <= 0) {
+            Toast.makeText(this, getString(R.string.ai_quota_used, kind.perDay), Toast.LENGTH_LONG).show()
             return
         }
-        model.generate(scenario, checkedLabel(binding.genres), checkedLabel(binding.languages), checkedLabel(binding.styles))
+        model.generate(
+            scenario, checkedLabel(binding.genres), checkedLabel(binding.languages), checkedLabel(binding.styles), drawnMode(),
+        )
     }
 
     private fun save() {
@@ -218,7 +280,7 @@ class AiStudioActivity : AddPackActivity() {
         binding.status.isVisible = state.status.isNotEmpty()
         binding.status.text = state.status
         binding.generate.isEnabled = !state.busy
-        binding.remaining.text = getString(R.string.ai_remaining, AiQuota.remaining(this), AiQuota.REQUESTS_PER_DAY)
+        updateRemaining()
         adapter.submit(state.results)
         val selected = state.results.count { it.selected }
         binding.bottomBar.isVisible = state.results.isNotEmpty()

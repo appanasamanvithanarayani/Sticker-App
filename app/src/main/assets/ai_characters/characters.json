@@ -1,0 +1,267 @@
+[
+  {
+    "id": "bean_laugh",
+    "file": "bean_laugh.webp",
+    "description": "yellow bean laughing so hard it cries; funny, LOL"
+  },
+  {
+    "id": "bean_rofl",
+    "file": "bean_rofl.webp",
+    "description": "yellow bean rolling on the floor laughing"
+  },
+  {
+    "id": "bean_oops",
+    "file": "bean_oops.webp",
+    "description": "yellow bean grimacing with a sweat drop; awkward, oops, nervous"
+  },
+  {
+    "id": "bean_cool",
+    "file": "bean_cool.webp",
+    "description": "yellow bean in sunglasses with a smirk; cool, sarcastic"
+  },
+  {
+    "id": "bean_shock",
+    "file": "bean_shock.webp",
+    "description": "yellow bean with wide shocked eyes; surprised, what?!"
+  },
+  {
+    "id": "bean_wink",
+    "file": "bean_wink.webp",
+    "description": "yellow bean winking with tongue out; teasing, just kidding"
+  },
+  {
+    "id": "bean_bored",
+    "file": "bean_bored.webp",
+    "description": "pale yellow bean half asleep; bored, tired, lazy"
+  },
+  {
+    "id": "bean_sus",
+    "file": "bean_sus.webp",
+    "description": "yellow bean giving a suspicious side eye; doubtful"
+  },
+  {
+    "id": "heart_love",
+    "file": "heart_love.webp",
+    "description": "smiling red heart with little hearts around; love, happy"
+  },
+  {
+    "id": "heart_hug",
+    "file": "heart_hug.webp",
+    "description": "big heart hugging a small heart; hugs, comfort, care"
+  },
+  {
+    "id": "heart_crush",
+    "file": "heart_crush.webp",
+    "description": "pink heart with heart eyes; crush, admiring, cute"
+  },
+  {
+    "id": "heart_sad",
+    "file": "heart_sad.webp",
+    "description": "pink heart with puppy eyes and a tear; sad, missing someone, sorry"
+  },
+  {
+    "id": "heart_kiss",
+    "file": "heart_kiss.webp",
+    "description": "heart blowing a kiss; kisses, flirty"
+  },
+  {
+    "id": "heart_shy",
+    "file": "heart_shy.webp",
+    "description": "blushing heart holding its cheeks; shy, aww, touched"
+  },
+  {
+    "id": "heart_broken",
+    "file": "heart_broken.webp",
+    "description": "cracked heart with a bandage and dizzy eyes; hurt, heartbreak, ouch"
+  },
+  {
+    "id": "heart_king",
+    "file": "heart_king.webp",
+    "description": "winking heart wearing a crown; possessive, you are mine, proud"
+  },
+  {
+    "id": "couple_together",
+    "file": "couple_together.webp",
+    "description": "pink and lilac bean couple holding hands under a heart; together, couple goals"
+  },
+  {
+    "id": "couple_kiss",
+    "file": "couple_kiss.webp",
+    "description": "two beans kissing; romance, mwah"
+  },
+  {
+    "id": "bean_rose",
+    "file": "bean_rose.webp",
+    "description": "shy lilac bean offering a red rose; proposal, for you, apology"
+  },
+  {
+    "id": "moon_night",
+    "file": "moon_night.webp",
+    "description": "sleeping crescent moon with stars; good night, sleepy"
+  },
+  {
+    "id": "coffee_date",
+    "file": "coffee_date.webp",
+    "description": "two coffee cups clinking with heart steam; date, chai, friends"
+  },
+  {
+    "id": "ring_box",
+    "file": "ring_box.webp",
+    "description": "open ring box with a diamond ring; marriage, forever, commitment"
+  },
+  {
+    "id": "bean_dream",
+    "file": "bean_dream.webp",
+    "description": "dreamy pink bean thinking of a heart; thinking of you, daydreaming"
+  },
+  {
+    "id": "bean_balloon",
+    "file": "bean_balloon.webp",
+    "description": "happy lilac bean holding a heart balloon; celebration, always, birthday"
+  },
+  {
+    "id": "bean_late",
+    "file": "bean_late.webp",
+    "description": "nervous bean with an alarm clock; late, hurry, time"
+  },
+  {
+    "id": "bean_pizza",
+    "file": "bean_pizza.webp",
+    "description": "happy bean holding pizza; food, diet, hungry"
+  },
+  {
+    "id": "bean_phone",
+    "file": "bean_phone.webp",
+    "description": "shocked bean staring at a phone; message, no reply, seen"
+  },
+  {
+    "id": "bean_bed",
+    "file": "bean_bed.webp",
+    "description": "sleepy bean under a blanket in bed; sleep, lazy, morning"
+  },
+  {
+    "id": "bean_chai",
+    "file": "bean_chai.webp",
+    "description": "calm bean with a cup of chai; relax, tea break"
+  },
+  {
+    "id": "bean_money",
+    "file": "bean_money.webp",
+    "description": "crying bean watching money fly away; broke, salary, expensive"
+  },
+  {
+    "id": "bean_flower",
+    "file": "bean_flower.webp",
+    "description": "lilac bean with puppy eyes offering a flower; sorry, please, cute request"
+  },
+  {
+    "id": "bean_biryani",
+    "file": "bean_biryani.webp",
+    "description": "hungry bean with a bowl of biryani; food, hungry, treat"
+  },
+  {
+    "id": "bean_tickets",
+    "file": "bean_tickets.webp",
+    "description": "excited bean with two movie tickets; movie plan, first show, excited"
+  },
+  {
+    "id": "popcorn",
+    "file": "popcorn.webp",
+    "description": "happy popcorn bucket; interval, snacks, movie time"
+  },
+  {
+    "id": "bean_hero",
+    "file": "bean_hero.webp",
+    "description": "bean in sunglasses in a spotlight; hero entry, swag, show-off"
+  },
+  {
+    "id": "bean_villain",
+    "file": "bean_villain.webp",
+    "description": "lilac bean with a mustache laughing evilly; villain, evil plan, mischief"
+  },
+  {
+    "id": "bean_twist",
+    "file": "bean_twist.webp",
+    "description": "shocked bean with a clapperboard; twist, drama, unexpected"
+  },
+  {
+    "id": "trophy",
+    "file": "trophy.webp",
+    "description": "smiling gold trophy; win, success, congratulations"
+  },
+  {
+    "id": "bean_tv",
+    "file": "bean_tv.webp",
+    "description": "bored bean in front of a TV; waiting, binge watching"
+  },
+  {
+    "id": "bean_crying",
+    "file": "bean_crying.webp",
+    "description": "crying bean with a tissue box; emotional, crying, touched"
+  },
+  {
+    "id": "bean_no",
+    "file": "bean_no.webp",
+    "description": "bean covering its ears with eyes squeezed shut; not listening, no spoilers, la la la"
+  },
+  {
+    "id": "hero_mass",
+    "file": "hero_mass.webp",
+    "description": "hero in sunglasses with dust clouds; mass entry, attitude, boss"
+  },
+  {
+    "id": "hero_angry",
+    "file": "hero_angry.webp",
+    "description": "hero with arms crossed and angry brows; warning, serious, attitude"
+  },
+  {
+    "id": "hero_love",
+    "file": "hero_love.webp",
+    "description": "blushing hero holding a heart; in love, romantic hero"
+  },
+  {
+    "id": "heroine_attitude",
+    "file": "heroine_attitude.webp",
+    "description": "heroine with arms crossed and side eye; sassy, demanding, unimpressed"
+  },
+  {
+    "id": "hero_food",
+    "file": "hero_food.webp",
+    "description": "hero holding a plate of food; food first, lunch, hungry"
+  },
+  {
+    "id": "hero_boss",
+    "file": "hero_boss.webp",
+    "description": "hero with crown and sunglasses giving thumbs up; boss, success, approval"
+  },
+  {
+    "id": "jodi",
+    "file": "jodi.webp",
+    "description": "hero and heroine standing together under a heart; jodi, couple, best pair"
+  },
+  {
+    "id": "hero_scared",
+    "file": "hero_scared.webp",
+    "description": "scared hero with hands up and sweat drop; afraid, mom, caught"
+  },
+  {
+    "id": "heroine_shy",
+    "file": "heroine_shy.webp",
+    "description": "blushing heroine holding her cheeks; shy, siggu, flattered"
+  },
+  {
+    "id": "hero_punch",
+    "file": "hero_punch.webp",
+    "description": "hero throwing a punch with an impact star; fight, action, dhishum"
+  },
+  {
+    "id": "hero_swag",
+    "file": "hero_swag.webp",
+    "description": "hero in sunglasses with arms crossed; swag, attitude, confident"
+  },
+  {
+    "id": "heroine_angry",
+    "file": "heroine_angry.webp",
+    "description": "angry heroine holding a phone; no reply, angry girlfriend, complaint"
+  }
+]

@@ -9,7 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
-const { packs, INK } = require('./art');
+const { packs, aiCharacters, INK } = require('./art');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ASSETS = path.join(ROOT, 'app', 'src', 'main', 'assets');
@@ -62,6 +62,12 @@ function dialogueSvg(sticker, accent) {
         fill="#fff" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>
       <text class="bubble" font-size="44" fill="${INK}">${text}</text>
     </g></svg>`;
+}
+
+// A character without caption or border, for the app's free AI mode. The app adds both.
+function blankSvg(sticker) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <g transform="translate(256 256) scale(0.95) translate(-256 -226)">${sticker.art()}</g></svg>`;
 }
 
 function svgFor(sticker, accent, withText) {
@@ -177,6 +183,21 @@ async function main() {
   }
 
   fs.writeFileSync(path.join(ASSETS, 'contents.json'), JSON.stringify(contents, null, 2) + '\n');
+
+  // Characters for the free AI mode (no captions, transparent background).
+  const charDir = path.join(ASSETS, 'ai_characters');
+  fs.rmSync(charDir, { recursive: true, force: true });
+  fs.mkdirSync(charDir, { recursive: true });
+  const catalogue = [];
+  for (const [id, packId, index, description] of aiCharacters) {
+    const pack = packs.find((p) => p.identifier === packId);
+    const png = await render(page, blankSvg(pack.stickers[index]));
+    const file = `${id}.webp`;
+    fs.writeFileSync(path.join(charDir, file), await encode(page, png, { type: 'image/webp', size: 512, maxBytes: STICKER_MAX }));
+    catalogue.push({ id, file, description });
+  }
+  fs.writeFileSync(path.join(charDir, 'characters.json'), JSON.stringify(catalogue, null, 2) + '\n');
+  console.log(`ai_characters: ${catalogue.length} characters`);
 
   // Contact sheet: one row per pack on a soft background.
   fs.mkdirSync(DOCS, { recursive: true });

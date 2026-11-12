@@ -76,7 +76,13 @@
     <string name="support_email" translatable="false"></string>
     <string name="ai_studio">AI Sticker Studio</string>
     <string name="ai_open">AI stickers</string>
-    <string name="ai_intro">Describe a situation and pick a mood. AI draws 4 stickers for it, and you keep the ones you like.</string>
+    <string name="ai_intro">Describe a situation and pick a mood. AI makes a set of stickers for it, and you keep the ones you like.</string>
+    <string name="ai_mode">Sticker art</string>
+    <string name="ai_mode_free">RomCom characters</string>
+    <string name="ai_mode_drawn">New AI drawings</string>
+    <string name="ai_mode_free_hint">AI writes 6 captions for your scenario and picks the best RomCom character for each.</string>
+    <string name="ai_mode_drawn_hint">AI draws 4 brand-new pictures for your scenario. Slower, and needs the app\'s AI image plan.</string>
+    <string name="ai_error_drawing">Couldn\'t draw new pictures right now. Try the RomCom characters option instead.</string>
     <string name="ai_scenario_hint">Describe the scenario</string>
     <string name="ai_scenario_too_short">Tell us a little more about the scenario.</string>
     <string name="ai_examples_label">Try one</string>

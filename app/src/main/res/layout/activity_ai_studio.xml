@@ -90,6 +90,37 @@
                         app:singleLine="true" />
                 </HorizontalScrollView>
 
+                <TextView style="@style/SectionLabel" android:text="@string/ai_mode" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/modes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/modeFree"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ai_mode_free" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/modeDrawn"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ai_mode_drawn" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    android:id="@+id/modeHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
                 <TextView style="@style/SectionLabel" android:text="@string/ai_genre" />
 
                 <com.google.android.material.chip.ChipGroup
@@ -108,7 +139,10 @@
                     app:selectionRequired="true"
                     app:singleSelection="true" />
 
-                <TextView style="@style/SectionLabel" android:text="@string/ai_style" />
+                <TextView
+                    android:id="@+id/styleLabel"
+                    style="@style/SectionLabel"
+                    android:text="@string/ai_style" />
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/styles"

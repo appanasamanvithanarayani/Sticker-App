@@ -36,12 +36,14 @@ Once **My Stickers** has 3 stickers, it can be added to WhatsApp like the other 
 
 Tap **AI stickers** on the home screen, describe a scenario ("my friend is always late to college and we tease him"), and pick a genre (comedy, romance, romcom, mass, filmy drama, cute…), a caption language and a drawing style. Then:
 
-1. Gemini writes 4 sticker ideas with original captions.
-2. Gemini draws each one on a plain white background.
-3. The phone cuts out the drawing and adds the white border and caption.
-4. You keep the ones you like, and they go into **My Stickers**.
+There are two kinds of sticker art:
 
-The prompts tell Gemini not to draw real people or film characters and to keep things light-hearted. Every result has a **Report** button, as Google Play requires for AI-generated content. Each phone gets 5 generations a day (`AiQuota.kt`) to keep costs down.
+- **RomCom characters (free, the default):** Gemini writes 6 original captions and picks the best of 53 caption-free app characters for each (beans, hearts, the hero and heroine, popcorn…). This only uses the text model, so it works on Firebase's free **Spark** plan.
+- **New AI drawings:** Gemini writes 4 captions and draws a new picture for each; the phone cuts it out and adds the border and caption. Image generation usually needs the **Blaze** plan.
+
+You keep the ones you like, and they go into **My Stickers**.
+
+The prompts tell Gemini not to draw real people or film characters and to keep things light-hearted. Every result has a **Report** button, as Google Play requires for AI-generated content. Each phone gets 20 free-mode and 5 drawing generations a day (`AiQuota.kt`) to keep usage down.
 
 ### Turning it on (one-time setup)
 
@@ -49,7 +51,7 @@ The app calls Gemini through [Firebase AI Logic](https://firebase.google.com/doc
 
 1. Create a project in the [Firebase console](https://console.firebase.google.com) and add an Android app with the package name `com.romcomstickers.app` (the `applicationId` in `app/build.gradle.kts`).
 2. Download `google-services.json` and put it in `app/`. It is in `.gitignore`, so it stays out of this public repo.
-3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. Image generation needs the project on the pay-as-you-go **Blaze** plan.
+3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. The free character mode works on the Spark plan; new AI drawings need the pay-as-you-go **Blaze** plan.
 4. Turn on **App Check** with **Play Integrity**, and enforce it for AI Logic so only your app can use your quota. For debug builds, copy the debug token the app prints to Logcat into App Check's **Manage debug tokens**.
 5. Check that the model names in `AiStickerGenerator.kt` (`TEXT_MODEL`, `IMAGE_MODEL`) are still listed on the [supported models page](https://firebase.google.com/docs/ai-logic/models); Google retires old models regularly.
 6. Set `support_email` in `app/src/main/res/values/strings.xml` so sticker reports reach you.
