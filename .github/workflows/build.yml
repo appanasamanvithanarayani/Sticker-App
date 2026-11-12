@@ -25,6 +25,19 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
+      # The Firebase config is kept in a repository secret, not in the code.
+      # Without it (for example in pull requests from forks) the app builds without AI stickers.
+      - name: Add Firebase config
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
+            echo "Firebase config added."
+          else
+            echo "No GOOGLE_SERVICES_JSON secret; building without AI stickers."
+          fi
+
       - name: Build debug APK
         run: ./gradlew assembleDebug lintDebug
 

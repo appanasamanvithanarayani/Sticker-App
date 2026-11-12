@@ -50,13 +50,13 @@ The prompts tell Gemini not to draw real people or film characters and to keep t
 The app calls Gemini through [Firebase AI Logic](https://firebase.google.com/docs/ai-logic), so no API key is stored in the app.
 
 1. Create a project in the [Firebase console](https://console.firebase.google.com) and add an Android app with the package name `com.romcomstickers.app` (the `applicationId` in `app/build.gradle.kts`).
-2. Download `google-services.json` and put it in `app/`. It is in `.gitignore`, so it stays out of this public repo.
+2. Download `google-services.json` and put it in `app/` for local builds. It is in `.gitignore`, so it stays out of this public repo. For GitHub Actions builds, save the file's contents as a repository secret named `GOOGLE_SERVICES_JSON` (Settings → Secrets and variables → Actions); the workflow writes it into `app/` before building.
 3. In the console, open **AI Logic**, choose the **Gemini Developer API**, and enable it. The free character mode works on the Spark plan; new AI drawings need the pay-as-you-go **Blaze** plan.
 4. Turn on **App Check** with **Play Integrity**, and enforce it for AI Logic so only your app can use your quota. For debug builds, copy the debug token the app prints to Logcat into App Check's **Manage debug tokens**.
 5. Check that the model names in `AiStickerGenerator.kt` (`TEXT_MODEL`, `IMAGE_MODEL`) are still listed on the [supported models page](https://firebase.google.com/docs/ai-logic/models); Google retires old models regularly.
 6. Set `support_email` in `app/src/main/res/values/strings.xml` so sticker reports reach you.
 
-Builds without `google-services.json`, including the GitHub Actions build, still work; the AI screen just says it isn't set up.
+Builds without `google-services.json` still work; the AI screen just says it isn't set up.
 
 ## Build and run
 
