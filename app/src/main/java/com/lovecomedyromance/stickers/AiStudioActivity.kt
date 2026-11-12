@@ -305,8 +305,22 @@ class AiStudioActivity : AddPackActivity() {
         binding.save.text = resources.getQuantityString(R.plurals.ai_save_selected, selected, selected)
         state.error?.let {
             model.clearError()
-            MaterialAlertDialogBuilder(this).setMessage(it).setPositiveButton(android.R.string.ok, null).show()
+            val dialog = MaterialAlertDialogBuilder(this).setMessage(it).setPositiveButton(android.R.string.ok, null)
+            // Test builds: offer the App Check debug token that has to be allowed in Firebase.
+            val token = if ("App Check" in it) DebugTools.appCheckDebugToken(this) else null
+            if (token != null) dialog.setNeutralButton(R.string.ai_copy_token) { _, _ -> copyToken(token) }
+            dialog.show()
         }
+    }
+
+    private fun copyToken(token: String) {
+        val clipboard = getSystemService(android.content.ClipboardManager::class.java)
+        clipboard.setPrimaryClip(android.content.ClipData.newPlainText("App Check debug token", token))
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.ai_token_copied_title)
+            .setMessage(getString(R.string.ai_token_copied_message, token))
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     // Play requires a way to report offensive AI output. Reports go to the developer by email.

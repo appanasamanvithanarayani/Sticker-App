@@ -22,6 +22,17 @@ android {
         versionName = "1.0"
     }
 
+    // A shared debug key, so test builds from GitHub Actions and Android Studio can update
+    // each other (and keep their App Check debug token). Never use it for releases.
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true

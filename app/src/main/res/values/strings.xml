@@ -103,6 +103,9 @@
     <string name="ai_error_location">AI stickers aren\'t available in your region yet.</string>
     <string name="ai_error_timeout">The AI took too long to answer. Please try again.</string>
     <string name="ai_error_server">The AI service returned an error. The model may not be available for this project.</string>
+    <string name="ai_copy_token">Copy App Check token</string>
+    <string name="ai_token_copied_title">Token copied</string>
+    <string name="ai_token_copied_message">In the Firebase console, open App Check, then the Apps tab. Next to RomCom Stickers, open the ⋮ menu, choose Manage debug tokens, add a token and paste:\n\n%1$s\n\nWait a minute, then try again.</string>
     <string name="ai_error_details">Details: %1$s</string>
     <string name="ai_error_nothing">No stickers came back this time. Please try again.</string>
     <string name="ai_keep">Keep</string>

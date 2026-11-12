@@ -11,5 +11,6 @@ build/
 node_modules/
 *.jks
 *.keystore
+!app/debug.keystore
 # Firebase config: keep it out of this public repo.
 app/google-services.json
