@@ -54,9 +54,9 @@ object AiStickerGenerator {
             "stickers" to Schema.array(
                 items = Schema.obj(
                     mapOf(
-                        "caption" to Schema.str("Original short caption"),
-                        "emoji" to Schema.str("One matching emoji"),
-                        "scene" to Schema.str("English description of the drawing, without text"),
+                        "caption" to Schema.string("Original short caption"),
+                        "emoji" to Schema.string("One matching emoji"),
+                        "scene" to Schema.string("English description of the drawing, without text"),
                     ),
                 ),
                 minItems = STICKERS_PER_REQUEST,
@@ -73,7 +73,7 @@ object AiStickerGenerator {
                 responseSchema = ideaSchema
                 temperature = 1.0f
             },
-            systemInstruction = content { addText(PLANNER_RULES) },
+            systemInstruction = content { text(PLANNER_RULES) },
         )
         val prompt = """
             Make $STICKERS_PER_REQUEST different stickers.
