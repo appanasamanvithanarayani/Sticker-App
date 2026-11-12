@@ -163,7 +163,7 @@ async function main() {
     contents.sticker_packs.push({
       identifier: pack.identifier,
       name: pack.name,
-      publisher: 'Love Comedy Romance Stickers',
+      publisher: 'Filmy Feels',
       tray_image_file: 'tray.png',
       image_data_version: pack.version,
       avoid_cache: false,
