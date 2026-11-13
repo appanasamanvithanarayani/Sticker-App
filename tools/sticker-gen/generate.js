@@ -9,7 +9,7 @@
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
-const { packs, aiCharacters, INK } = require('./art');
+const { packs, aiCharacters, peopleCharacters, INK } = require('./art');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const ASSETS = path.join(ROOT, 'app', 'src', 'main', 'assets');
@@ -189,12 +189,22 @@ async function main() {
   fs.rmSync(charDir, { recursive: true, force: true });
   fs.mkdirSync(charDir, { recursive: true });
   const catalogue = [];
+  // Characters from the packs: the hero and heroine are young adults, the rest suit any age.
+  const packAge = { mass_hero: 'young' };
   for (const [id, packId, index, description] of aiCharacters) {
     const pack = packs.find((p) => p.identifier === packId);
     const png = await render(page, blankSvg(pack.stickers[index]));
     const file = `${id}.webp`;
     fs.writeFileSync(path.join(charDir, file), await encode(page, png, { type: 'image/webp', size: 512, maxBytes: STICKER_MAX }));
-    catalogue.push({ id, file, description });
+    const gender = id.startsWith('heroine') ? 'female' : id.startsWith('hero_') ? 'male' : 'any';
+    catalogue.push({ id, file, description, age: packAge[packId] || 'any', gender });
+  }
+  // People of every age, gender and expression.
+  for (const c of peopleCharacters) {
+    const png = await render(page, blankSvg(c));
+    const file = `${c.id}.webp`;
+    fs.writeFileSync(path.join(charDir, file), await encode(page, png, { type: 'image/webp', size: 512, maxBytes: STICKER_MAX }));
+    catalogue.push({ id: c.id, file, description: c.description, age: c.age, gender: c.gender });
   }
   fs.writeFileSync(path.join(charDir, 'characters.json'), JSON.stringify(catalogue, null, 2) + '\n');
   console.log(`ai_characters: ${catalogue.length} characters`);

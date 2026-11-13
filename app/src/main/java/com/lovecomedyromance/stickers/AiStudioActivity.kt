@@ -66,6 +66,8 @@ class AiStudioActivity : AddPackActivity() {
             style: String,
             age: String?,
             gender: String?,
+            ageKey: String,
+            genderKey: String,
             drawn: Boolean,
         ) {
             val app = getApplication<Application>()
@@ -74,7 +76,7 @@ class AiStudioActivity : AddPackActivity() {
             state.value = UiState(busy = true, status = app.getString(R.string.ai_status_planning), progress = 5)
             viewModelScope.launch {
                 if (!drawn) {
-                    generateWithCharacters(app, scenario, genre, language)
+                    generateWithCharacters(app, scenario, genre, language, age, gender, ageKey, genderKey)
                     return@launch
                 }
                 try {
@@ -123,10 +125,19 @@ class AiStudioActivity : AddPackActivity() {
         }
 
         // Free mode: Gemini writes captions and picks from the app's own characters.
-        private suspend fun generateWithCharacters(app: Application, scenario: String, genre: String, language: String) {
+        private suspend fun generateWithCharacters(
+            app: Application,
+            scenario: String,
+            genre: String,
+            language: String,
+            age: String?,
+            gender: String?,
+            ageKey: String,
+            genderKey: String,
+        ) {
             try {
-                val characters = withContext(Dispatchers.IO) { AiCharacters.all(app) }
-                val ideas = AiStickerGenerator.planWithCharacters(scenario, genre, language, characters)
+                val characters = withContext(Dispatchers.IO) { AiCharacters.matching(app, ageKey, genderKey) }
+                val ideas = AiStickerGenerator.planWithCharacters(scenario, genre, language, characters, age, gender)
                 state.update { it.copy(progress = 60) }
                 val made = withContext(Dispatchers.Default) {
                     ideas.mapNotNull { idea ->
@@ -260,10 +271,6 @@ class AiStudioActivity : AddPackActivity() {
     private fun updateMode() {
         binding.styleLabel.isVisible = drawnMode()
         binding.styles.isVisible = drawnMode()
-        binding.ageLabel.isVisible = drawnMode()
-        binding.ages.isVisible = drawnMode()
-        binding.genderLabel.isVisible = drawnMode()
-        binding.genders.isVisible = drawnMode()
         binding.modeHint.setText(if (drawnMode()) R.string.ai_mode_drawn_hint else R.string.ai_mode_free_hint)
         updateRemaining()
     }
@@ -308,6 +315,8 @@ class AiStudioActivity : AddPackActivity() {
         model.generate(
             scenario, checkedLabel(binding.genres), checkedLabel(binding.languages), checkedLabel(binding.styles),
             selectedPrompt(binding.ages, R.array.ai_age_prompts), selectedPrompt(binding.genders, R.array.ai_gender_prompts),
+            selectedPrompt(binding.ages, R.array.ai_age_keys).orEmpty(),
+            selectedPrompt(binding.genders, R.array.ai_gender_keys).orEmpty(),
             drawnMode(),
         )
     }

@@ -868,4 +868,134 @@ const aiCharacters = [
   ['heroine_angry', 'mass_hero', 11, 'angry heroine holding a phone; no reply, angry girlfriend, complaint'],
 ];
 
-module.exports = { packs: [love, comedy, romance, dialogues, movies, massHero], aiCharacters, INK };
+// ---- original people of every age, for the free AI mode ----
+
+const GREY = '#d9d9d9';
+
+// Ages: baby, kid, teen, young, adult, middle, elder. Gender: female, male.
+const LOOKS = {
+  baby:   { R: 100, body: 70,  skin: SKIN2, female: { shirt: '#ffafcc', hair: 'bow' },       male: { shirt: '#a2d2ff', hair: 'tuft' } },
+  kid:    { R: 90,  body: 100, skin: SKIN,  female: { shirt: '#ff8fab', hair: 'pigtails' },  male: { shirt: '#4cc9f0', hair: 'short' } },
+  teen:   { R: 86,  body: 115, skin: SKIN2, female: { shirt: '#c77dff', hair: 'ponytail' },  male: { shirt: '#52b788', hair: 'spiky' } },
+  young:  { R: 84,  body: 120, skin: SKIN,  female: { shirt: KURTI, hair: 'long', bindi: true }, male: { shirt: SHIRT, hair: 'spiky', stubble: true } },
+  adult:  { R: 84,  body: 125, skin: SKIN2, female: { shirt: '#f77f00', hair: 'long', bindi: true }, male: { shirt: '#3a86ff', hair: 'short', stubble: true, glasses: 'square' } },
+  middle: { R: 86,  body: 130, wide: true, skin: SKIN, female: { shirt: '#2a9d8f', hair: 'bun', bindi: true, saree: '#ffd166' }, male: { shirt: '#f1faee', hair: 'receding', mustache: HAIR, glasses: 'square' } },
+  elder:  { R: 86,  body: 125, skin: SKIN2, wrinkles: true, female: { shirt: '#9d0208', hair: 'bun', hairColor: GREY, bindi: true, saree: '#ffd166', glasses: 'round' }, male: { shirt: '#ffffff', hair: 'bald', hairColor: '#f8f9fa', mustache: '#f8f9fa', glasses: 'round' } },
+};
+
+const EXPRESSIONS = {
+  happy:   { face: { eyes: 'happy', mouth: 'grin' }, words: 'happy and smiling; good news, yay, thank you' },
+  laugh:   { face: { eyes: 'laugh', mouth: 'laugh' }, words: 'laughing hard with tears; funny, LOL' },
+  angry:   { face: { eyes: 'dot', mouth: 'frown', blush: false }, brows: 'angry', arms: 'crossed', words: 'angry with arms crossed; annoyed, scolding' },
+  shocked: { face: { eyes: 'shock', mouth: 'bigo', blush: false }, words: 'shocked with wide eyes; surprised, what?!' },
+  sad:     { face: { eyes: 'puppy', mouth: 'wavy' }, words: 'sad with puppy eyes and a tear; sorry, miss you, hurt' },
+  love:    { face: { eyes: 'heart', mouth: 'grin' }, arms: 'heart', words: 'in love, hugging a heart; love you, crush, cute' },
+};
+
+function personHair(type, R, color, back) {
+  const c = color || HAIR;
+  if (back) {
+    if (type === 'long') return `<path d="M${-R * 1.1} -10 Q${-R * 1.25} ${R * 1.4} ${-R * 0.9} ${R * 1.75} L${R * 0.9} ${R * 1.75} Q${R * 1.25} ${R * 1.4} ${R * 1.1} -10 Z" fill="${c}" ${stroke(6)}/>`;
+    if (type === 'ponytail') return `<path d="M${R * 0.6} ${-R * 0.6} Q${R * 1.6} ${-R * 0.4} ${R * 1.3} ${R * 0.9} Q${R * 1.1} ${R * 0.2} ${R * 0.7} 0 Z" fill="${c}" ${stroke(6)}/>`;
+    if (type === 'pigtails') return `<circle cx="${-R * 1.05}" cy="${-R * 0.1}" r="${R * 0.38}" fill="${c}" ${stroke(6)}/><circle cx="${R * 1.05}" cy="${-R * 0.1}" r="${R * 0.38}" fill="${c}" ${stroke(6)}/>`;
+    if (type === 'bun') return `<circle cx="0" cy="${-R * 1.05}" r="${R * 0.38}" fill="${c}" ${stroke(6)}/>`;
+    return '';
+  }
+  switch (type) {
+    case 'bow':
+      return `<path d="M-6 ${-R + 4} q-10 -26 10 -30 q-4 14 8 18" fill="none" stroke="${HAIR}" stroke-width="6" stroke-linecap="round"/>
+        <path d="M${R * 0.25} ${-R * 0.9} l-34 -20 v40 Z M${R * 0.25} ${-R * 0.9} l34 -20 v40 Z" fill="#ff5c8a" ${stroke(5)}/>
+        <circle cx="${R * 0.25}" cy="${-R * 0.9}" r="10" fill="#ff8fab" ${stroke(4)}/>`;
+    case 'tuft':
+      return `<path d="M-6 ${-R + 4} q-10 -26 10 -30 q-4 14 8 18" fill="none" stroke="${HAIR}" stroke-width="7" stroke-linecap="round"/>`;
+    case 'spiky':
+      return `<path d="M${-R} -6 Q${-R * 1.1} ${-R * 0.9} ${-R * 0.5} ${-R * 1.05} L${-R * 0.45} ${-R * 1.42} L${-R * 0.1} ${-R * 1.12} L${R * 0.25} ${-R * 1.48} L${R * 0.45} ${-R * 1.08} L${R * 0.82} ${-R * 1.25} L${R * 0.78} ${-R * 0.9} Q${R * 1.12} ${-R * 0.65} ${R} -6 Q${R * 0.9} ${-R * 0.6} ${R * 0.5} ${-R * 0.66} Q0 ${-R * 0.84} ${-R * 0.5} ${-R * 0.66} Q${-R * 0.9} ${-R * 0.6} ${-R} -6 Z" fill="${c}" ${stroke(6)}/>`;
+    case 'short':
+      return `<path d="M${-R} -4 Q${-R * 1.05} ${-R * 1.15} 0 ${-R * 1.1} Q${R * 1.05} ${-R * 1.15} ${R} -4 Q${R * 0.85} ${-R * 0.55} ${R * 0.3} ${-R * 0.62} Q0 ${-R * 0.5} ${-R * 0.3} ${-R * 0.66} Q${-R * 0.85} ${-R * 0.55} ${-R} -4 Z" fill="${c}" ${stroke(6)}/>`;
+    case 'receding':
+      return `<path d="M${-R * 1.02} 6 Q${-R * 1.08} ${-R * 0.6} ${-R * 0.7} ${-R * 0.8} Q${-R * 0.75} ${-R * 0.35} ${-R * 0.86} 6 Z M${R * 1.02} 6 Q${R * 1.08} ${-R * 0.6} ${R * 0.7} ${-R * 0.8} Q${R * 0.75} ${-R * 0.35} ${R * 0.86} 6 Z" fill="${c}" ${stroke(5)}/>
+        <path d="M-10 ${-R * 0.98} q8 -14 18 -4" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round"/>`;
+    case 'bald':
+      return `<path d="M${-R * 1.02} 10 Q${-R * 1.1} ${-R * 0.5} ${-R * 0.75} ${-R * 0.7} Q${-R * 0.78} ${-R * 0.3} ${-R * 0.86} 10 Z M${R * 1.02} 10 Q${R * 1.1} ${-R * 0.5} ${R * 0.75} ${-R * 0.7} Q${R * 0.78} ${-R * 0.3} ${R * 0.86} 10 Z" fill="${c}" ${stroke(5)}/>`;
+    default: // long, ponytail, pigtails, bun: a fringe over the head
+      return `<path d="M${-R * 1.04} 4 Q${-R * 1.1} ${-R * 1.1} 0 ${-R * 1.12} Q${R * 1.1} ${-R * 1.1} ${R * 1.04} 4 Q${R * 0.82} ${-R * 0.58} ${R * 0.22} ${-R * 0.62} Q0 ${-R * 0.36} ${-R * 0.12} ${-R * 0.62} Q${-R * 0.82} ${-R * 0.58} ${-R * 1.04} 4 Z" fill="${c}" ${stroke(6)}/>`;
+  }
+}
+
+function person(x, y, s, ageKey, gender, exprKey) {
+  const look = LOOKS[ageKey];
+  const g = look[gender];
+  const ex = EXPRESSIONS[exprKey];
+  const R = look.R;
+  const k = R / 86;
+  const skin = look.skin;
+  const top = R * 0.88;
+  const half = (look.wide ? 82 : 66) * Math.min(1, look.body / 110 + 0.15);
+  const bottom = top + look.body;
+  const armY = top + 22;
+  const arms = ex.arms || 'down';
+  const armsSvg = {
+    down: `${limb(`M${-half + 6} ${armY} Q${-half - 24} ${armY + 40} ${-half - 16} ${bottom - 18}`, g.shirt)}${hand(-half - 16, bottom - 14, 15 * k, skin)}
+           ${limb(`M${half - 6} ${armY} Q${half + 24} ${armY + 40} ${half + 16} ${bottom - 18}`, g.shirt)}${hand(half + 16, bottom - 14, 15 * k, skin)}`,
+    crossed: `${limb(`M${-half + 4} ${armY + 4} Q-10 ${armY + 60} ${half - 12} ${armY + 22}`, g.shirt)}${hand(half - 8, armY + 20, 15 * k, skin)}
+              ${limb(`M${half - 4} ${armY + 4} Q10 ${armY + 50} ${-half + 12} ${armY + 32}`, g.shirt)}${hand(-half + 8, armY + 32, 15 * k, skin)}`,
+    heart: `${limb(`M${-half + 6} ${armY} Q${-half} ${armY + 46} -26 ${armY + 46}`, g.shirt)}${limb(`M${half - 6} ${armY} Q${half} ${armY + 46} 26 ${armY + 46}`, g.shirt)}
+            ${heart(0, armY + 38, 36 * k, RED)}${hand(-30, armY + 46, 14 * k, skin)}${hand(30, armY + 46, 14 * k, skin)}`,
+  }[arms];
+  const brows = ex.brows === 'angry'
+    ? `<path d="M${-48 * k} ${-38 * k} L${-14 * k} ${-24 * k} M${48 * k} ${-38 * k} L${14 * k} ${-24 * k}" ${stroke(8)}/>` : '';
+  const glasses = g.glasses === 'round'
+    ? `<g fill="none" ${stroke(5)}><circle cx="${-34 * k}" cy="${4 * k}" r="${22 * k}"/><circle cx="${34 * k}" cy="${4 * k}" r="${22 * k}"/><path d="M${-12 * k} ${4 * k} H${12 * k}"/></g>`
+    : g.glasses === 'square'
+      ? `<g fill="none" ${stroke(5)}><rect x="${-60 * k}" y="${-14 * k}" width="${46 * k}" height="${34 * k}" rx="8"/><rect x="${14 * k}" y="${-14 * k}" width="${46 * k}" height="${34 * k}" rx="8"/><path d="M${-14 * k} 0 H${14 * k}"/></g>`
+      : '';
+  const extras = {
+    laugh: `${drop(-R - 18, -10, 1.1, '#7ad3ff', -50)}${drop(R + 18, -10, 1.1, '#7ad3ff', 50)}`,
+    shocked: drop(R * 0.95, -R * 0.75, 1.2, '#7ad3ff', 10),
+    sad: drop(-34 * k, 40 * k, 1, '#7ad3ff'),
+    love: `${heart(-R - 10, -R * 0.7, 18, PINK, { rot: -15 })}${heart(R + 14, -R * 0.9, 22, BLUSH, { rot: 12 })}`,
+    angry: `<path d="M${R * 0.9} ${-R * 1.05} q12 -10 0 -20 q-12 -10 0 -20 M${R * 1.15} ${-R * 0.95} q12 -10 0 -20 q-12 -10 0 -20" fill="none" stroke="#adb5bd" stroke-width="7" stroke-linecap="round"/>`,
+    happy: `${sparkle(-R - 12, -R * 0.7, 18)}${sparkle(R + 14, -R * 0.85, 16, '#fff')}`,
+  }[exprKey];
+  return `<g transform="translate(${x} ${y}) scale(${s})">
+    ${personHair(g.hair, R, g.hairColor, true)}
+    <path d="M${-half} ${top + 6} Q${-half - 14} ${bottom - 10} ${-half + 8} ${bottom} H${half - 8} Q${half + 14} ${bottom - 10} ${half} ${top + 6} Q0 ${top - 14} ${-half} ${top + 6} Z" fill="${g.shirt}" ${stroke()}/>
+    ${g.saree ? `<path d="M${-half + 4} ${top + 4} L${half - 6} ${bottom - 6} L${half - 30} ${bottom} L${-half + 2} ${top + 40} Z" fill="${g.saree}" opacity="0.9"/>` : ''}
+    <circle cx="0" cy="0" r="${R}" fill="${skin}" ${stroke()}/>
+    ${g.stubble ? `<path d="M${-R * 0.96} ${R * 0.2} Q${-R * 0.9} ${R} 0 ${R} Q${R * 0.9} ${R} ${R * 0.96} ${R * 0.2} Q${R * 0.8} ${R * 0.5} ${R * 0.55} ${R * 0.45} Q${R * 0.3} ${R * 0.86} 0 ${R * 0.84} Q${-R * 0.3} ${R * 0.86} ${-R * 0.55} ${R * 0.45} Q${-R * 0.8} ${R * 0.5} ${-R * 0.96} ${R * 0.2} Z" fill="${HAIR}" opacity="0.8"/>` : ''}
+    ${personHair(g.hair, R, g.hairColor, false)}
+    ${g.bindi ? `<circle cx="0" cy="${-R * 0.42}" r="${6 * k}" fill="#e5383b"/>` : ''}
+    ${look.wrinkles ? `<path d="M${-30 * k} ${-R * 0.55} q30 -8 60 0 M${-62 * k} ${-6 * k} l-10 -4 M${62 * k} ${-6 * k} l10 -4" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round" opacity="0.6"/>` : ''}
+    ${face(0, 8 * k, 1.25 * k, { blush: true, ...ex.face })}
+    ${brows}${glasses}
+    ${g.mustache ? mustache(0, 36 * k, 1.1 * k).replace('#6b3f2a', g.mustache) : ''}
+    ${armsSvg}${extras}
+  </g>`;
+}
+
+const AGE_WORDS = {
+  baby: ['baby girl', 'baby boy'], kid: ['little girl', 'little boy'], teen: ['teenage girl', 'teenage boy'],
+  young: ['young woman', 'young man'], adult: ['woman in her 30s', 'man in his 30s'],
+  middle: ['aunty', 'uncle'], elder: ['grandmother (ammamma)', 'grandfather (thatha)'],
+};
+
+// Every age x gender x expression, drawn centred like the other stickers.
+const peopleCharacters = [];
+for (const age of Object.keys(LOOKS)) {
+  for (const gender of ['female', 'male']) {
+    for (const expr of Object.keys(EXPRESSIONS)) {
+      const look = LOOKS[age];
+      const height = look.R * 2.4 + look.body;
+      const scale = Math.min(1.25, 330 / height);
+      const y = 236 - (look.body + look.R * 0.88 - look.R * 1.3) * scale / 2;
+      peopleCharacters.push({
+        id: `${age}_${gender}_${expr}`,
+        age, gender,
+        description: `${AGE_WORDS[age][gender === 'female' ? 0 : 1]}, ${EXPRESSIONS[expr].words}`,
+        art: () => person(256, y, scale, age, gender, expr),
+      });
+    }
+  }
+}
+
+module.exports = { packs: [love, comedy, romance, dialogues, movies, massHero], aiCharacters, peopleCharacters, INK };

@@ -80,7 +80,7 @@
     <string name="ai_mode">Sticker art</string>
     <string name="ai_mode_free">RomCom characters</string>
     <string name="ai_mode_drawn">New AI drawings</string>
-    <string name="ai_mode_free_hint">AI writes 6 captions for your scenario and picks the best RomCom character for each.</string>
+    <string name="ai_mode_free_hint">AI writes 6 captions for your scenario and picks the best RomCom character for each, including people of every age.</string>
     <string name="ai_mode_drawn_hint">AI creates 4 brand-new pictures for your scenario, from realistic photos of made-up people to cartoons. Slower, and needs the app\'s AI image plan.</string>
     <string name="ai_error_drawing">Couldn\'t draw new pictures right now. Try the RomCom characters option instead.</string>
     <string name="ai_scenario_hint">Describe the scenario</string>
@@ -187,6 +187,22 @@
         <item></item>
         <item>female: a baby girl, girl, young woman, aunty or grandmother to match the age group</item>
         <item>male: a baby boy, boy, young man, uncle or grandfather to match the age group</item>
+    </string-array>
+    <!-- Character tags in assets/ai_characters/characters.json, same order as ai_ages / ai_genders. -->
+    <string-array name="ai_age_keys" translatable="false">
+        <item></item>
+        <item>baby</item>
+        <item>kid</item>
+        <item>teen</item>
+        <item>young</item>
+        <item>adult</item>
+        <item>middle</item>
+        <item>elder</item>
+    </string-array>
+    <string-array name="ai_gender_keys" translatable="false">
+        <item></item>
+        <item>female</item>
+        <item>male</item>
     </string-array>
     <string-array name="ai_examples">
         <item>My friend is always late to college and we tease him</item>

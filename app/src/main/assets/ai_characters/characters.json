@@ -2,266 +2,960 @@
   {
     "id": "bean_laugh",
     "file": "bean_laugh.webp",
-    "description": "yellow bean laughing so hard it cries; funny, LOL"
+    "description": "yellow bean laughing so hard it cries; funny, LOL",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_rofl",
     "file": "bean_rofl.webp",
-    "description": "yellow bean rolling on the floor laughing"
+    "description": "yellow bean rolling on the floor laughing",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_oops",
     "file": "bean_oops.webp",
-    "description": "yellow bean grimacing with a sweat drop; awkward, oops, nervous"
+    "description": "yellow bean grimacing with a sweat drop; awkward, oops, nervous",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_cool",
     "file": "bean_cool.webp",
-    "description": "yellow bean in sunglasses with a smirk; cool, sarcastic"
+    "description": "yellow bean in sunglasses with a smirk; cool, sarcastic",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_shock",
     "file": "bean_shock.webp",
-    "description": "yellow bean with wide shocked eyes; surprised, what?!"
+    "description": "yellow bean with wide shocked eyes; surprised, what?!",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_wink",
     "file": "bean_wink.webp",
-    "description": "yellow bean winking with tongue out; teasing, just kidding"
+    "description": "yellow bean winking with tongue out; teasing, just kidding",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_bored",
     "file": "bean_bored.webp",
-    "description": "pale yellow bean half asleep; bored, tired, lazy"
+    "description": "pale yellow bean half asleep; bored, tired, lazy",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_sus",
     "file": "bean_sus.webp",
-    "description": "yellow bean giving a suspicious side eye; doubtful"
+    "description": "yellow bean giving a suspicious side eye; doubtful",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_love",
     "file": "heart_love.webp",
-    "description": "smiling red heart with little hearts around; love, happy"
+    "description": "smiling red heart with little hearts around; love, happy",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_hug",
     "file": "heart_hug.webp",
-    "description": "big heart hugging a small heart; hugs, comfort, care"
+    "description": "big heart hugging a small heart; hugs, comfort, care",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_crush",
     "file": "heart_crush.webp",
-    "description": "pink heart with heart eyes; crush, admiring, cute"
+    "description": "pink heart with heart eyes; crush, admiring, cute",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_sad",
     "file": "heart_sad.webp",
-    "description": "pink heart with puppy eyes and a tear; sad, missing someone, sorry"
+    "description": "pink heart with puppy eyes and a tear; sad, missing someone, sorry",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_kiss",
     "file": "heart_kiss.webp",
-    "description": "heart blowing a kiss; kisses, flirty"
+    "description": "heart blowing a kiss; kisses, flirty",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_shy",
     "file": "heart_shy.webp",
-    "description": "blushing heart holding its cheeks; shy, aww, touched"
+    "description": "blushing heart holding its cheeks; shy, aww, touched",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_broken",
     "file": "heart_broken.webp",
-    "description": "cracked heart with a bandage and dizzy eyes; hurt, heartbreak, ouch"
+    "description": "cracked heart with a bandage and dizzy eyes; hurt, heartbreak, ouch",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "heart_king",
     "file": "heart_king.webp",
-    "description": "winking heart wearing a crown; possessive, you are mine, proud"
+    "description": "winking heart wearing a crown; possessive, you are mine, proud",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "couple_together",
     "file": "couple_together.webp",
-    "description": "pink and lilac bean couple holding hands under a heart; together, couple goals"
+    "description": "pink and lilac bean couple holding hands under a heart; together, couple goals",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "couple_kiss",
     "file": "couple_kiss.webp",
-    "description": "two beans kissing; romance, mwah"
+    "description": "two beans kissing; romance, mwah",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_rose",
     "file": "bean_rose.webp",
-    "description": "shy lilac bean offering a red rose; proposal, for you, apology"
+    "description": "shy lilac bean offering a red rose; proposal, for you, apology",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "moon_night",
     "file": "moon_night.webp",
-    "description": "sleeping crescent moon with stars; good night, sleepy"
+    "description": "sleeping crescent moon with stars; good night, sleepy",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "coffee_date",
     "file": "coffee_date.webp",
-    "description": "two coffee cups clinking with heart steam; date, chai, friends"
+    "description": "two coffee cups clinking with heart steam; date, chai, friends",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "ring_box",
     "file": "ring_box.webp",
-    "description": "open ring box with a diamond ring; marriage, forever, commitment"
+    "description": "open ring box with a diamond ring; marriage, forever, commitment",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_dream",
     "file": "bean_dream.webp",
-    "description": "dreamy pink bean thinking of a heart; thinking of you, daydreaming"
+    "description": "dreamy pink bean thinking of a heart; thinking of you, daydreaming",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_balloon",
     "file": "bean_balloon.webp",
-    "description": "happy lilac bean holding a heart balloon; celebration, always, birthday"
+    "description": "happy lilac bean holding a heart balloon; celebration, always, birthday",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_late",
     "file": "bean_late.webp",
-    "description": "nervous bean with an alarm clock; late, hurry, time"
+    "description": "nervous bean with an alarm clock; late, hurry, time",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_pizza",
     "file": "bean_pizza.webp",
-    "description": "happy bean holding pizza; food, diet, hungry"
+    "description": "happy bean holding pizza; food, diet, hungry",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_phone",
     "file": "bean_phone.webp",
-    "description": "shocked bean staring at a phone; message, no reply, seen"
+    "description": "shocked bean staring at a phone; message, no reply, seen",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_bed",
     "file": "bean_bed.webp",
-    "description": "sleepy bean under a blanket in bed; sleep, lazy, morning"
+    "description": "sleepy bean under a blanket in bed; sleep, lazy, morning",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_chai",
     "file": "bean_chai.webp",
-    "description": "calm bean with a cup of chai; relax, tea break"
+    "description": "calm bean with a cup of chai; relax, tea break",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_money",
     "file": "bean_money.webp",
-    "description": "crying bean watching money fly away; broke, salary, expensive"
+    "description": "crying bean watching money fly away; broke, salary, expensive",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_flower",
     "file": "bean_flower.webp",
-    "description": "lilac bean with puppy eyes offering a flower; sorry, please, cute request"
+    "description": "lilac bean with puppy eyes offering a flower; sorry, please, cute request",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_biryani",
     "file": "bean_biryani.webp",
-    "description": "hungry bean with a bowl of biryani; food, hungry, treat"
+    "description": "hungry bean with a bowl of biryani; food, hungry, treat",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_tickets",
     "file": "bean_tickets.webp",
-    "description": "excited bean with two movie tickets; movie plan, first show, excited"
+    "description": "excited bean with two movie tickets; movie plan, first show, excited",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "popcorn",
     "file": "popcorn.webp",
-    "description": "happy popcorn bucket; interval, snacks, movie time"
+    "description": "happy popcorn bucket; interval, snacks, movie time",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_hero",
     "file": "bean_hero.webp",
-    "description": "bean in sunglasses in a spotlight; hero entry, swag, show-off"
+    "description": "bean in sunglasses in a spotlight; hero entry, swag, show-off",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_villain",
     "file": "bean_villain.webp",
-    "description": "lilac bean with a mustache laughing evilly; villain, evil plan, mischief"
+    "description": "lilac bean with a mustache laughing evilly; villain, evil plan, mischief",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_twist",
     "file": "bean_twist.webp",
-    "description": "shocked bean with a clapperboard; twist, drama, unexpected"
+    "description": "shocked bean with a clapperboard; twist, drama, unexpected",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "trophy",
     "file": "trophy.webp",
-    "description": "smiling gold trophy; win, success, congratulations"
+    "description": "smiling gold trophy; win, success, congratulations",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_tv",
     "file": "bean_tv.webp",
-    "description": "bored bean in front of a TV; waiting, binge watching"
+    "description": "bored bean in front of a TV; waiting, binge watching",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_crying",
     "file": "bean_crying.webp",
-    "description": "crying bean with a tissue box; emotional, crying, touched"
+    "description": "crying bean with a tissue box; emotional, crying, touched",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "bean_no",
     "file": "bean_no.webp",
-    "description": "bean covering its ears with eyes squeezed shut; not listening, no spoilers, la la la"
+    "description": "bean covering its ears with eyes squeezed shut; not listening, no spoilers, la la la",
+    "age": "any",
+    "gender": "any"
   },
   {
     "id": "hero_mass",
     "file": "hero_mass.webp",
-    "description": "hero in sunglasses with dust clouds; mass entry, attitude, boss"
+    "description": "hero in sunglasses with dust clouds; mass entry, attitude, boss",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "hero_angry",
     "file": "hero_angry.webp",
-    "description": "hero with arms crossed and angry brows; warning, serious, attitude"
+    "description": "hero with arms crossed and angry brows; warning, serious, attitude",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "hero_love",
     "file": "hero_love.webp",
-    "description": "blushing hero holding a heart; in love, romantic hero"
+    "description": "blushing hero holding a heart; in love, romantic hero",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "heroine_attitude",
     "file": "heroine_attitude.webp",
-    "description": "heroine with arms crossed and side eye; sassy, demanding, unimpressed"
+    "description": "heroine with arms crossed and side eye; sassy, demanding, unimpressed",
+    "age": "young",
+    "gender": "female"
   },
   {
     "id": "hero_food",
     "file": "hero_food.webp",
-    "description": "hero holding a plate of food; food first, lunch, hungry"
+    "description": "hero holding a plate of food; food first, lunch, hungry",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "hero_boss",
     "file": "hero_boss.webp",
-    "description": "hero with crown and sunglasses giving thumbs up; boss, success, approval"
+    "description": "hero with crown and sunglasses giving thumbs up; boss, success, approval",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "jodi",
     "file": "jodi.webp",
-    "description": "hero and heroine standing together under a heart; jodi, couple, best pair"
+    "description": "hero and heroine standing together under a heart; jodi, couple, best pair",
+    "age": "young",
+    "gender": "any"
   },
   {
     "id": "hero_scared",
     "file": "hero_scared.webp",
-    "description": "scared hero with hands up and sweat drop; afraid, mom, caught"
+    "description": "scared hero with hands up and sweat drop; afraid, mom, caught",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "heroine_shy",
     "file": "heroine_shy.webp",
-    "description": "blushing heroine holding her cheeks; shy, siggu, flattered"
+    "description": "blushing heroine holding her cheeks; shy, siggu, flattered",
+    "age": "young",
+    "gender": "female"
   },
   {
     "id": "hero_punch",
     "file": "hero_punch.webp",
-    "description": "hero throwing a punch with an impact star; fight, action, dhishum"
+    "description": "hero throwing a punch with an impact star; fight, action, dhishum",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "hero_swag",
     "file": "hero_swag.webp",
-    "description": "hero in sunglasses with arms crossed; swag, attitude, confident"
+    "description": "hero in sunglasses with arms crossed; swag, attitude, confident",
+    "age": "young",
+    "gender": "male"
   },
   {
     "id": "heroine_angry",
     "file": "heroine_angry.webp",
-    "description": "angry heroine holding a phone; no reply, angry girlfriend, complaint"
+    "description": "angry heroine holding a phone; no reply, angry girlfriend, complaint",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_happy",
+    "file": "baby_female_happy.webp",
+    "description": "baby girl, happy and smiling; good news, yay, thank you",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_laugh",
+    "file": "baby_female_laugh.webp",
+    "description": "baby girl, laughing hard with tears; funny, LOL",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_angry",
+    "file": "baby_female_angry.webp",
+    "description": "baby girl, angry with arms crossed; annoyed, scolding",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_shocked",
+    "file": "baby_female_shocked.webp",
+    "description": "baby girl, shocked with wide eyes; surprised, what?!",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_sad",
+    "file": "baby_female_sad.webp",
+    "description": "baby girl, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_female_love",
+    "file": "baby_female_love.webp",
+    "description": "baby girl, in love, hugging a heart; love you, crush, cute",
+    "age": "baby",
+    "gender": "female"
+  },
+  {
+    "id": "baby_male_happy",
+    "file": "baby_male_happy.webp",
+    "description": "baby boy, happy and smiling; good news, yay, thank you",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "baby_male_laugh",
+    "file": "baby_male_laugh.webp",
+    "description": "baby boy, laughing hard with tears; funny, LOL",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "baby_male_angry",
+    "file": "baby_male_angry.webp",
+    "description": "baby boy, angry with arms crossed; annoyed, scolding",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "baby_male_shocked",
+    "file": "baby_male_shocked.webp",
+    "description": "baby boy, shocked with wide eyes; surprised, what?!",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "baby_male_sad",
+    "file": "baby_male_sad.webp",
+    "description": "baby boy, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "baby_male_love",
+    "file": "baby_male_love.webp",
+    "description": "baby boy, in love, hugging a heart; love you, crush, cute",
+    "age": "baby",
+    "gender": "male"
+  },
+  {
+    "id": "kid_female_happy",
+    "file": "kid_female_happy.webp",
+    "description": "little girl, happy and smiling; good news, yay, thank you",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_female_laugh",
+    "file": "kid_female_laugh.webp",
+    "description": "little girl, laughing hard with tears; funny, LOL",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_female_angry",
+    "file": "kid_female_angry.webp",
+    "description": "little girl, angry with arms crossed; annoyed, scolding",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_female_shocked",
+    "file": "kid_female_shocked.webp",
+    "description": "little girl, shocked with wide eyes; surprised, what?!",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_female_sad",
+    "file": "kid_female_sad.webp",
+    "description": "little girl, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_female_love",
+    "file": "kid_female_love.webp",
+    "description": "little girl, in love, hugging a heart; love you, crush, cute",
+    "age": "kid",
+    "gender": "female"
+  },
+  {
+    "id": "kid_male_happy",
+    "file": "kid_male_happy.webp",
+    "description": "little boy, happy and smiling; good news, yay, thank you",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "kid_male_laugh",
+    "file": "kid_male_laugh.webp",
+    "description": "little boy, laughing hard with tears; funny, LOL",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "kid_male_angry",
+    "file": "kid_male_angry.webp",
+    "description": "little boy, angry with arms crossed; annoyed, scolding",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "kid_male_shocked",
+    "file": "kid_male_shocked.webp",
+    "description": "little boy, shocked with wide eyes; surprised, what?!",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "kid_male_sad",
+    "file": "kid_male_sad.webp",
+    "description": "little boy, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "kid_male_love",
+    "file": "kid_male_love.webp",
+    "description": "little boy, in love, hugging a heart; love you, crush, cute",
+    "age": "kid",
+    "gender": "male"
+  },
+  {
+    "id": "teen_female_happy",
+    "file": "teen_female_happy.webp",
+    "description": "teenage girl, happy and smiling; good news, yay, thank you",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_female_laugh",
+    "file": "teen_female_laugh.webp",
+    "description": "teenage girl, laughing hard with tears; funny, LOL",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_female_angry",
+    "file": "teen_female_angry.webp",
+    "description": "teenage girl, angry with arms crossed; annoyed, scolding",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_female_shocked",
+    "file": "teen_female_shocked.webp",
+    "description": "teenage girl, shocked with wide eyes; surprised, what?!",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_female_sad",
+    "file": "teen_female_sad.webp",
+    "description": "teenage girl, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_female_love",
+    "file": "teen_female_love.webp",
+    "description": "teenage girl, in love, hugging a heart; love you, crush, cute",
+    "age": "teen",
+    "gender": "female"
+  },
+  {
+    "id": "teen_male_happy",
+    "file": "teen_male_happy.webp",
+    "description": "teenage boy, happy and smiling; good news, yay, thank you",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "teen_male_laugh",
+    "file": "teen_male_laugh.webp",
+    "description": "teenage boy, laughing hard with tears; funny, LOL",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "teen_male_angry",
+    "file": "teen_male_angry.webp",
+    "description": "teenage boy, angry with arms crossed; annoyed, scolding",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "teen_male_shocked",
+    "file": "teen_male_shocked.webp",
+    "description": "teenage boy, shocked with wide eyes; surprised, what?!",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "teen_male_sad",
+    "file": "teen_male_sad.webp",
+    "description": "teenage boy, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "teen_male_love",
+    "file": "teen_male_love.webp",
+    "description": "teenage boy, in love, hugging a heart; love you, crush, cute",
+    "age": "teen",
+    "gender": "male"
+  },
+  {
+    "id": "young_female_happy",
+    "file": "young_female_happy.webp",
+    "description": "young woman, happy and smiling; good news, yay, thank you",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_female_laugh",
+    "file": "young_female_laugh.webp",
+    "description": "young woman, laughing hard with tears; funny, LOL",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_female_angry",
+    "file": "young_female_angry.webp",
+    "description": "young woman, angry with arms crossed; annoyed, scolding",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_female_shocked",
+    "file": "young_female_shocked.webp",
+    "description": "young woman, shocked with wide eyes; surprised, what?!",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_female_sad",
+    "file": "young_female_sad.webp",
+    "description": "young woman, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_female_love",
+    "file": "young_female_love.webp",
+    "description": "young woman, in love, hugging a heart; love you, crush, cute",
+    "age": "young",
+    "gender": "female"
+  },
+  {
+    "id": "young_male_happy",
+    "file": "young_male_happy.webp",
+    "description": "young man, happy and smiling; good news, yay, thank you",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "young_male_laugh",
+    "file": "young_male_laugh.webp",
+    "description": "young man, laughing hard with tears; funny, LOL",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "young_male_angry",
+    "file": "young_male_angry.webp",
+    "description": "young man, angry with arms crossed; annoyed, scolding",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "young_male_shocked",
+    "file": "young_male_shocked.webp",
+    "description": "young man, shocked with wide eyes; surprised, what?!",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "young_male_sad",
+    "file": "young_male_sad.webp",
+    "description": "young man, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "young_male_love",
+    "file": "young_male_love.webp",
+    "description": "young man, in love, hugging a heart; love you, crush, cute",
+    "age": "young",
+    "gender": "male"
+  },
+  {
+    "id": "adult_female_happy",
+    "file": "adult_female_happy.webp",
+    "description": "woman in her 30s, happy and smiling; good news, yay, thank you",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_female_laugh",
+    "file": "adult_female_laugh.webp",
+    "description": "woman in her 30s, laughing hard with tears; funny, LOL",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_female_angry",
+    "file": "adult_female_angry.webp",
+    "description": "woman in her 30s, angry with arms crossed; annoyed, scolding",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_female_shocked",
+    "file": "adult_female_shocked.webp",
+    "description": "woman in her 30s, shocked with wide eyes; surprised, what?!",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_female_sad",
+    "file": "adult_female_sad.webp",
+    "description": "woman in her 30s, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_female_love",
+    "file": "adult_female_love.webp",
+    "description": "woman in her 30s, in love, hugging a heart; love you, crush, cute",
+    "age": "adult",
+    "gender": "female"
+  },
+  {
+    "id": "adult_male_happy",
+    "file": "adult_male_happy.webp",
+    "description": "man in his 30s, happy and smiling; good news, yay, thank you",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "adult_male_laugh",
+    "file": "adult_male_laugh.webp",
+    "description": "man in his 30s, laughing hard with tears; funny, LOL",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "adult_male_angry",
+    "file": "adult_male_angry.webp",
+    "description": "man in his 30s, angry with arms crossed; annoyed, scolding",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "adult_male_shocked",
+    "file": "adult_male_shocked.webp",
+    "description": "man in his 30s, shocked with wide eyes; surprised, what?!",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "adult_male_sad",
+    "file": "adult_male_sad.webp",
+    "description": "man in his 30s, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "adult_male_love",
+    "file": "adult_male_love.webp",
+    "description": "man in his 30s, in love, hugging a heart; love you, crush, cute",
+    "age": "adult",
+    "gender": "male"
+  },
+  {
+    "id": "middle_female_happy",
+    "file": "middle_female_happy.webp",
+    "description": "aunty, happy and smiling; good news, yay, thank you",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_female_laugh",
+    "file": "middle_female_laugh.webp",
+    "description": "aunty, laughing hard with tears; funny, LOL",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_female_angry",
+    "file": "middle_female_angry.webp",
+    "description": "aunty, angry with arms crossed; annoyed, scolding",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_female_shocked",
+    "file": "middle_female_shocked.webp",
+    "description": "aunty, shocked with wide eyes; surprised, what?!",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_female_sad",
+    "file": "middle_female_sad.webp",
+    "description": "aunty, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_female_love",
+    "file": "middle_female_love.webp",
+    "description": "aunty, in love, hugging a heart; love you, crush, cute",
+    "age": "middle",
+    "gender": "female"
+  },
+  {
+    "id": "middle_male_happy",
+    "file": "middle_male_happy.webp",
+    "description": "uncle, happy and smiling; good news, yay, thank you",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "middle_male_laugh",
+    "file": "middle_male_laugh.webp",
+    "description": "uncle, laughing hard with tears; funny, LOL",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "middle_male_angry",
+    "file": "middle_male_angry.webp",
+    "description": "uncle, angry with arms crossed; annoyed, scolding",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "middle_male_shocked",
+    "file": "middle_male_shocked.webp",
+    "description": "uncle, shocked with wide eyes; surprised, what?!",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "middle_male_sad",
+    "file": "middle_male_sad.webp",
+    "description": "uncle, sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "middle_male_love",
+    "file": "middle_male_love.webp",
+    "description": "uncle, in love, hugging a heart; love you, crush, cute",
+    "age": "middle",
+    "gender": "male"
+  },
+  {
+    "id": "elder_female_happy",
+    "file": "elder_female_happy.webp",
+    "description": "grandmother (ammamma), happy and smiling; good news, yay, thank you",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_female_laugh",
+    "file": "elder_female_laugh.webp",
+    "description": "grandmother (ammamma), laughing hard with tears; funny, LOL",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_female_angry",
+    "file": "elder_female_angry.webp",
+    "description": "grandmother (ammamma), angry with arms crossed; annoyed, scolding",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_female_shocked",
+    "file": "elder_female_shocked.webp",
+    "description": "grandmother (ammamma), shocked with wide eyes; surprised, what?!",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_female_sad",
+    "file": "elder_female_sad.webp",
+    "description": "grandmother (ammamma), sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_female_love",
+    "file": "elder_female_love.webp",
+    "description": "grandmother (ammamma), in love, hugging a heart; love you, crush, cute",
+    "age": "elder",
+    "gender": "female"
+  },
+  {
+    "id": "elder_male_happy",
+    "file": "elder_male_happy.webp",
+    "description": "grandfather (thatha), happy and smiling; good news, yay, thank you",
+    "age": "elder",
+    "gender": "male"
+  },
+  {
+    "id": "elder_male_laugh",
+    "file": "elder_male_laugh.webp",
+    "description": "grandfather (thatha), laughing hard with tears; funny, LOL",
+    "age": "elder",
+    "gender": "male"
+  },
+  {
+    "id": "elder_male_angry",
+    "file": "elder_male_angry.webp",
+    "description": "grandfather (thatha), angry with arms crossed; annoyed, scolding",
+    "age": "elder",
+    "gender": "male"
+  },
+  {
+    "id": "elder_male_shocked",
+    "file": "elder_male_shocked.webp",
+    "description": "grandfather (thatha), shocked with wide eyes; surprised, what?!",
+    "age": "elder",
+    "gender": "male"
+  },
+  {
+    "id": "elder_male_sad",
+    "file": "elder_male_sad.webp",
+    "description": "grandfather (thatha), sad with puppy eyes and a tear; sorry, miss you, hurt",
+    "age": "elder",
+    "gender": "male"
+  },
+  {
+    "id": "elder_male_love",
+    "file": "elder_male_love.webp",
+    "description": "grandfather (thatha), in love, hugging a heart; love you, crush, cute",
+    "age": "elder",
+    "gender": "male"
   }
 ]
