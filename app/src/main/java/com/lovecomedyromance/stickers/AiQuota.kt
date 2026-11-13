@@ -16,6 +16,7 @@ object AiQuota {
     private const val PREFS = "ai_quota"
 
     fun remaining(context: Context, kind: Kind): Int {
+        if (DebugTools.UNLIMITED_AI) return kind.perDay
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val today = LocalDate.now().toString()
         val used = if (prefs.getString("day_${kind.name}", null) == today) prefs.getInt("used_${kind.name}", 0) else 0

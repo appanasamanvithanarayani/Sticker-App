@@ -6,6 +6,9 @@ import com.google.firebase.FirebaseApp
 /** Test-build helpers. The release build has an empty version of this object. */
 object DebugTools {
 
+    /** Test builds have no daily AI limit, so the developer can keep testing. */
+    const val UNLIMITED_AI = true
+
     private val UUID = Regex("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
 
     /**
