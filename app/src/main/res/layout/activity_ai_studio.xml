@@ -163,6 +163,18 @@
                     app:selectionRequired="true"
                     app:singleSelection="true" />
 
+                <TextView
+                    android:id="@+id/genderLabel"
+                    style="@style/SectionLabel"
+                    android:text="@string/ai_gender" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/genders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:selectionRequired="true"
+                    app:singleSelection="true" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/generate"
                     android:layout_width="match_parent"

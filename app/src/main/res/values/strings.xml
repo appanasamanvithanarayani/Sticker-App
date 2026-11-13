@@ -136,6 +136,7 @@
         <item>Mass</item>
         <item>Filmy drama</item>
         <item>Cute</item>
+        <item>Cute &amp; girly</item>
         <item>Friendship</item>
         <item>College and office</item>
     </string-array>
@@ -148,6 +149,7 @@
     <string-array name="ai_styles">
         <item>Realistic photo</item>
         <item>Cute cartoon</item>
+        <item>Kawaii pastel</item>
         <item>3D toy</item>
         <item>Comic book</item>
         <item>Chibi</item>
@@ -174,12 +176,25 @@
         <item>a middle-aged Indian uncle or aunty (about 45 to 55 years old)</item>
         <item>an elderly grandparent, a thatha or ammamma (about 70 years old)</item>
     </string-array>
+    <string name="ai_gender">Character</string>
+    <string-array name="ai_genders">
+        <item>Any</item>
+        <item>Girl</item>
+        <item>Boy</item>
+    </string-array>
+    <!-- Prompt text for each choice above, same order. Empty = any. -->
+    <string-array name="ai_gender_prompts" translatable="false">
+        <item></item>
+        <item>female: a baby girl, girl, young woman, aunty or grandmother to match the age group</item>
+        <item>male: a baby boy, boy, young man, uncle or grandfather to match the age group</item>
+    </string-array>
     <string-array name="ai_examples">
         <item>My friend is always late to college and we tease him</item>
         <item>Couple fighting over who ate the last biryani piece</item>
         <item>Monday morning at the office, everyone sleepy</item>
         <item>Mom finds out I bunked the exam</item>
         <item>Proposing to my crush with a rose, very filmy</item>
+        <item>Cute baby girl refusing to eat her vegetables</item>
     </string-array>
     <plurals name="sticker_count">
         <item quantity="one">%1$d sticker · %2$s</item>

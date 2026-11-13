@@ -59,7 +59,15 @@ class AiStudioActivity : AddPackActivity() {
         private val typeface: Typeface = ResourcesCompat.getFont(app, R.font.fredoka_bold) ?: Typeface.DEFAULT_BOLD
         private var nextId = 0
 
-        fun generate(scenario: String, genre: String, language: String, style: String, age: String?, drawn: Boolean) {
+        fun generate(
+            scenario: String,
+            genre: String,
+            language: String,
+            style: String,
+            age: String?,
+            gender: String?,
+            drawn: Boolean,
+        ) {
             val app = getApplication<Application>()
             if (state.value.busy) return
             AiQuota.use(app, if (drawn) AiQuota.Kind.DRAWN else AiQuota.Kind.FREE)
@@ -70,7 +78,7 @@ class AiStudioActivity : AddPackActivity() {
                     return@launch
                 }
                 try {
-                    val ideas = AiStickerGenerator.planIdeas(scenario, genre, language, age)
+                    val ideas = AiStickerGenerator.planIdeas(scenario, genre, language, age, gender)
                     var drawError: Exception? = null
                     ideas.forEachIndexed { index, idea ->
                         state.update {
@@ -81,7 +89,7 @@ class AiStudioActivity : AddPackActivity() {
                         }
                         // One failed drawing shouldn't lose the others.
                         val sticker = try {
-                            val drawing = AiStickerGenerator.drawScene(idea, style, age)
+                            val drawing = AiStickerGenerator.drawScene(idea, style, age, gender)
                             withContext(Dispatchers.Default) { finish(app, drawing, idea, AiStickerGenerator.isRealistic(style)) }
                         } catch (e: CancellationException) {
                             throw e
@@ -222,6 +230,7 @@ class AiStudioActivity : AddPackActivity() {
         fillChips(binding.languages, R.array.ai_languages)
         fillChips(binding.styles, R.array.ai_styles)
         fillChips(binding.ages, R.array.ai_ages)
+        fillChips(binding.genders, R.array.ai_genders)
         binding.modes.check(R.id.modeFree)
         binding.modes.setOnCheckedStateChangeListener { _, _ -> updateMode() }
         updateMode()
@@ -253,6 +262,8 @@ class AiStudioActivity : AddPackActivity() {
         binding.styles.isVisible = drawnMode()
         binding.ageLabel.isVisible = drawnMode()
         binding.ages.isVisible = drawnMode()
+        binding.genderLabel.isVisible = drawnMode()
+        binding.genders.isVisible = drawnMode()
         binding.modeHint.setText(if (drawnMode()) R.string.ai_mode_drawn_hint else R.string.ai_mode_free_hint)
         updateRemaining()
     }
@@ -273,11 +284,10 @@ class AiStudioActivity : AddPackActivity() {
         }
     }
 
-    // The English description of the chosen age group for the prompts, or null for "Any age".
-    private fun selectedAge(): String? {
-        val group = binding.ages
+    // The English prompt text behind the chosen chip (age or gender), or null for "Any".
+    private fun selectedPrompt(group: ChipGroup, prompts: Int): String? {
         val index = (0 until group.childCount).firstOrNull { (group.getChildAt(it) as Chip).isChecked } ?: 0
-        return resources.getStringArray(R.array.ai_age_prompts)[index].ifBlank { null }
+        return resources.getStringArray(prompts)[index].ifBlank { null }
     }
 
     private fun checkedLabel(group: ChipGroup): String =
@@ -297,7 +307,8 @@ class AiStudioActivity : AddPackActivity() {
         }
         model.generate(
             scenario, checkedLabel(binding.genres), checkedLabel(binding.languages), checkedLabel(binding.styles),
-            selectedAge(), drawnMode(),
+            selectedPrompt(binding.ages, R.array.ai_age_prompts), selectedPrompt(binding.genders, R.array.ai_gender_prompts),
+            drawnMode(),
         )
     }
 

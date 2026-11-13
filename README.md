@@ -41,7 +41,7 @@ Tap **AI stickers** on the home screen, describe a scenario ("my friend is alway
 There are two kinds of sticker art:
 
 - **RomCom characters (free, the default):** Gemini writes 6 original captions and picks the best of 53 caption-free app characters for each (beans, hearts, the hero and heroine, popcorn…). This only uses the text model, so it works on Firebase's free **Spark** plan.
-- **New AI drawings:** pick a **character age** (baby, kid, teenager, young adult, adult, uncle/aunty, grandparent or any). Gemini writes 4 captions and creates a new picture for each, in a **Realistic photo** style (photos of made-up people, never real ones) or a cartoon style; the phone cuts it out and adds the border and caption. Image generation usually needs the **Blaze** plan.
+- **New AI drawings:** pick a **character age** (baby, kid, teenager, young adult, adult, uncle/aunty, grandparent or any) and **girl / boy / any**; a **Cute & girly** genre and **Kawaii pastel** style give soft, adorable stickers. Gemini writes 4 captions and creates a new picture for each, in a **Realistic photo** style (photos of made-up people, never real ones) or a cartoon style; the phone cuts it out and adds the border and caption. Image generation usually needs the **Blaze** plan.
 
 You keep the ones you like, and they go into **My Stickers**.
 
