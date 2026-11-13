@@ -71,6 +71,7 @@ class AiStudioActivity : AddPackActivity() {
                 }
                 try {
                     val ideas = AiStickerGenerator.planIdeas(scenario, genre, language)
+                    var drawError: Exception? = null
                     ideas.forEachIndexed { index, idea ->
                         state.update {
                             it.copy(
@@ -86,6 +87,7 @@ class AiStudioActivity : AddPackActivity() {
                             throw e
                         } catch (e: Exception) {
                             android.util.Log.e("AiStudio", "Drawing failed", e)
+                            drawError = e
                             null
                         }
                         if (sticker != null) {
@@ -97,8 +99,11 @@ class AiStudioActivity : AddPackActivity() {
                             busy = false,
                             progress = 100,
                             status = "",
-                            // Drawings usually fail on the free Spark plan; point to the free mode.
-                            error = if (it.results.isEmpty()) app.getString(R.string.ai_error_drawing) else null,
+                            // Drawings usually fail on the free Spark plan; point to the free mode and say why.
+                            error = if (it.results.isNotEmpty()) null else {
+                                val reason = drawError?.let { e -> "\n\n" + errorMessage(app, e) }.orEmpty()
+                                app.getString(R.string.ai_error_drawing) + reason
+                            },
                         )
                     }
                 } catch (e: CancellationException) {
