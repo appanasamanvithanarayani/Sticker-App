@@ -71,7 +71,17 @@ object AiStickerGenerator {
     /** False when the app was built without a Firebase config (google-services.json). */
     fun isConfigured(context: Context) = FirebaseApp.getApps(context).isNotEmpty()
 
-    private val ai get() = Firebase.ai(backend = GenerativeBackend.googleAI())
+    /**
+     * Which Gemini service Firebase AI Logic calls:
+     * - true: the Vertex AI Gemini API ("agentPlatform"), billed through Google Cloud, so Blaze
+     *   free-trial credits apply. Enable it in Firebase console > AI Logic > Settings.
+     * - false: the Gemini Developer API. Has a free tier for text on Spark, but on Blaze it needs
+     *   prepaid credits bought in Google AI Studio.
+     */
+    private const val USE_VERTEX_AI = true
+
+    private val ai
+        get() = Firebase.ai(backend = if (USE_VERTEX_AI) GenerativeBackend.agentPlatform() else GenerativeBackend.googleAI())
 
     private val PLANNER_RULES = """
         You plan stickers for a WhatsApp sticker app called RomCom Stickers.
