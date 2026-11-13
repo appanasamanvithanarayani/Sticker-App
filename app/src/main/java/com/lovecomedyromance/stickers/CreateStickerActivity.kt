@@ -95,6 +95,7 @@ class CreateStickerActivity : AddPackActivity() {
             })
         }
         binding.save.setOnClickListener { save() }
+        setupAiCaptions()
 
         state.onCutoutDone = ::onCutoutFinished
         when {
@@ -113,6 +114,59 @@ class CreateStickerActivity : AddPackActivity() {
         binding.removeBackground.isChecked = state.removeBackground
         setBusy(false)
         render()
+    }
+
+    // AI caption ideas: Gemini looks at the photo and suggests captions (text model, free plan).
+    private fun setupAiCaptions() {
+        if (!AiStickerGenerator.isConfigured(this)) return
+        binding.aiCaptionRow.isVisible = true
+        resources.getStringArray(R.array.ai_languages).forEachIndexed { i, label ->
+            binding.captionLanguages.addView(Chip(this).apply {
+                id = android.view.View.generateViewId()
+                text = label
+                isCheckable = true
+                isChecked = i == 0
+            })
+        }
+        binding.suggestCaptions.setOnClickListener { suggestCaptions() }
+    }
+
+    private fun suggestCaptions() {
+        val photo = state.photo ?: return
+        if (AiQuota.remaining(this, AiQuota.Kind.FREE) <= 0) {
+            Toast.makeText(this, getString(R.string.ai_quota_used, AiQuota.Kind.FREE.perDay), Toast.LENGTH_LONG).show()
+            return
+        }
+        val group = binding.captionLanguages
+        val language = group.findViewById<Chip>(group.checkedChipId)?.text?.toString() ?: "Telugu"
+        AiQuota.use(this, AiQuota.Kind.FREE)
+        binding.suggestCaptions.isEnabled = false
+        binding.suggestCaptions.setText(R.string.ai_suggesting)
+        lifecycleScope.launch {
+            try {
+                val small = withContext(Dispatchers.Default) { StickerComposer.limitSize(photo, 768) }
+                val captions = AiStickerGenerator.suggestCaptions(small, language)
+                binding.aiCaptions.removeAllViews()
+                captions.forEach { caption ->
+                    binding.aiCaptions.addView(Chip(this@CreateStickerActivity).apply {
+                        text = caption
+                        setOnClickListener {
+                            binding.caption.setText(caption.take(40))
+                            binding.caption.setSelection(binding.caption.length())
+                        }
+                    })
+                }
+            } catch (e: kotlinx.coroutines.CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                android.util.Log.e("CreateSticker", "Caption ideas failed", e)
+                val reason = "${e.javaClass.simpleName}: ${e.message.orEmpty().take(200)}"
+                Toast.makeText(this@CreateStickerActivity, getString(R.string.ai_suggest_failed, reason), Toast.LENGTH_LONG).show()
+            } finally {
+                binding.suggestCaptions.setText(R.string.ai_suggest_captions)
+                binding.suggestCaptions.isEnabled = state.photo != null
+            }
+        }
     }
 
     private fun launchPicker() {
@@ -179,6 +233,7 @@ class CreateStickerActivity : AddPackActivity() {
             val sticker = withContext(Dispatchers.Default) { currentSticker(caption) } ?: return@launch
             binding.preview.setImageBitmap(sticker)
             binding.save.isEnabled = true
+            binding.suggestCaptions.isEnabled = true
         }
     }
 
@@ -215,6 +270,7 @@ class CreateStickerActivity : AddPackActivity() {
         binding.progressText.isVisible = busy
         if (message != 0) binding.progressText.setText(message)
         binding.save.isEnabled = !busy && state.photo != null
+        binding.suggestCaptions.isEnabled = !busy && state.photo != null
     }
 
     private fun decode(uri: Uri): Bitmap? = try {

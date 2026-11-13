@@ -81,7 +81,7 @@ class AiStudioActivity : AddPackActivity() {
                         // One failed drawing shouldn't lose the others.
                         val sticker = try {
                             val drawing = AiStickerGenerator.drawScene(idea, style)
-                            withContext(Dispatchers.Default) { finish(app, drawing, idea) }
+                            withContext(Dispatchers.Default) { finish(app, drawing, idea, AiStickerGenerator.isRealistic(style)) }
                         } catch (e: CancellationException) {
                             throw e
                         } catch (e: Exception) {
@@ -158,9 +158,14 @@ class AiStudioActivity : AddPackActivity() {
         }
 
         // Cut out the drawing and add the border and caption.
-        private suspend fun finish(app: Application, drawing: Bitmap, idea: AiStickerGenerator.Idea): Bitmap {
+        private suspend fun finish(app: Application, drawing: Bitmap, idea: AiStickerGenerator.Idea, realistic: Boolean): Bitmap {
             val small = StickerComposer.limitSize(drawing.copy(Bitmap.Config.ARGB_8888, false))
-            val cutout = WhiteBackgroundRemover.remove(small) ?: BackgroundRemover.removeBackground(app, small)
+            // Photos have soft shadows, so ML Kit cuts them out better; cartoons have clean white backgrounds.
+            val cutout = if (realistic) {
+                BackgroundRemover.removeBackground(app, small) ?: WhiteBackgroundRemover.remove(small)
+            } else {
+                WhiteBackgroundRemover.remove(small) ?: BackgroundRemover.removeBackground(app, small)
+            }
             return StickerComposer.compose(
                 subject = cutout ?: small,
                 cutout = cutout != null,

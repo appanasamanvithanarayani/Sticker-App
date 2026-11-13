@@ -23,6 +23,8 @@ Tap **Make a sticker**, pick a photo, and the app:
 2. Lets you add a caption, typed or from quick captions like "Enti ra idi?!" or "Hero entry!", in yellow, white or pink.
 3. Adds a white sticker border, saves a 512×512 WebP under 100 KB and puts it in **My Stickers**.
 
+With AI set up, **Suggest captions** lets Gemini look at the photo and suggest 5 funny captions in Telugu, Hindi or English. This uses the text model only, so it works on the free Spark plan.
+
 Once **My Stickers** has 3 stickers, it can be added to WhatsApp like the other packs. It holds up to 30. Long-press a sticker to delete it.
 
 ## How it works
@@ -39,7 +41,7 @@ Tap **AI stickers** on the home screen, describe a scenario ("my friend is alway
 There are two kinds of sticker art:
 
 - **RomCom characters (free, the default):** Gemini writes 6 original captions and picks the best of 53 caption-free app characters for each (beans, hearts, the hero and heroine, popcorn…). This only uses the text model, so it works on Firebase's free **Spark** plan.
-- **New AI drawings:** Gemini writes 4 captions and draws a new picture for each; the phone cuts it out and adds the border and caption. Image generation usually needs the **Blaze** plan.
+- **New AI drawings:** Gemini writes 4 captions and creates a new picture for each, in a **Realistic photo** style (photos of made-up people, never real ones) or a cartoon style; the phone cuts it out and adds the border and caption. Image generation usually needs the **Blaze** plan.
 
 You keep the ones you like, and they go into **My Stickers**.
 

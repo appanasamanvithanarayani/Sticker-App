@@ -82,8 +82,9 @@ object AiStickerGenerator {
           TV, games or comics, and never quote film dialogues or use brand names.
         - Keep it light-hearted and kind: no insults about religion, caste, region, gender or bodies,
           nothing sexual, hateful or violent.
-        - "scene" is an English description of one or two original cartoon characters (people or animals)
-          with a clear expression and pose that matches the caption. Do not put any text in the scene.
+        - "scene" is an English description of one or two original, fictional characters (ordinary people of any age,
+          babies or animals) with a clear, funny expression and pose that matches the caption.
+          Do not put any text in the scene.
         - "emoji" is one emoji that matches the feeling.
         If the request breaks these rules, make wholesome stickers about the safe part of it instead.
     """.trimIndent()
@@ -194,6 +195,44 @@ object AiStickerGenerator {
         }
     }
 
+    fun isRealistic(style: String) = style.contains("realistic", ignoreCase = true)
+
+    /**
+     * Looks at the user's own photo and suggests funny captions for it. Uses only the text model
+     * (which can read images), so it works on the free Spark plan.
+     */
+    suspend fun suggestCaptions(photo: Bitmap, language: String): List<String> = withTextModel { modelName ->
+        val model = ai.generativeModel(
+            modelName = modelName,
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"
+                responseSchema = Schema.obj(
+                    mapOf("captions" to Schema.array(items = Schema.string("A short, funny sticker caption"), minItems = 5, maxItems = 5)),
+                )
+                temperature = 1.1f
+            },
+            systemInstruction = content {
+                text(
+                    """
+                    You write captions for WhatsApp stickers made from the user's own photos.
+                    Look at the expression, pose and situation and write short, funny, kind captions:
+                    at most 5 words and 30 characters each, all different.
+                    Write in the requested language; Telugu and Hindi must be in English letters.
+                    Never identify or name the people in the photo, never comment on bodies, skin colour,
+                    religion or caste, and never quote film dialogues.
+                    """.trimIndent(),
+                )
+            },
+        )
+        val prompt = content {
+            image(photo)
+            text("Caption language: $language. Suggest 5 sticker captions for this photo.")
+        }
+        val json = JSONObject(model.generateContent(prompt).text ?: error("Empty response"))
+        val arr = json.getJSONArray("captions")
+        (0 until arr.length()).map { arr.getString(it).trim().take(40) }.filter { it.isNotEmpty() }
+    }
+
     suspend fun drawScene(idea: Idea, style: String): Bitmap = withImageModel { modelName ->
         val model = ai.generativeModel(
             modelName = modelName,
@@ -202,13 +241,23 @@ object AiStickerGenerator {
                 imageConfig = imageConfig { aspectRatio = AspectRatio.SQUARE_1x1 }
             },
         )
-        val prompt = """
-            Sticker illustration: ${idea.scene}
-            Style: $style. One centred subject with a thick dark outline, flat bright colours and an expressive face.
-            Plain pure white background with nothing else in it.
-            Absolutely no text, letters, words or speech bubbles.
-            Original characters only, not resembling any real person or existing character.
-        """.trimIndent()
+        val prompt = if (isRealistic(style)) {
+            """
+                A realistic photo for a sticker: ${idea.scene}
+                Natural light, sharp focus, a very expressive face and body language, framed from the waist up and centred.
+                Plain pure white studio background with nothing else in it.
+                Absolutely no text, letters, words or speech bubbles.
+                The people must be fictional, ordinary-looking people who do not resemble any celebrity or real person.
+            """.trimIndent()
+        } else {
+            """
+                Sticker illustration: ${idea.scene}
+                Style: $style. One centred subject with a thick dark outline, flat bright colours and an expressive face.
+                Plain pure white background with nothing else in it.
+                Absolutely no text, letters, words or speech bubbles.
+                Original characters only, not resembling any real person or existing character.
+            """.trimIndent()
+        }
         val response = model.generateContent(prompt)
         response.candidates.firstOrNull()?.content?.parts
             ?.filterIsInstance<ImagePart>()?.firstOrNull()?.image
