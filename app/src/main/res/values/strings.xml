@@ -152,6 +152,28 @@
         <item>Comic book</item>
         <item>Chibi</item>
     </string-array>
+    <string name="ai_age">Character age</string>
+    <string-array name="ai_ages">
+        <item>Any age</item>
+        <item>Baby</item>
+        <item>Kid</item>
+        <item>Teenager</item>
+        <item>Young adult</item>
+        <item>Adult</item>
+        <item>Uncle / Aunty</item>
+        <item>Grandparent</item>
+    </string-array>
+    <!-- What each age above means in the prompts; keep the same order. Empty = any age. -->
+    <string-array name="ai_age_prompts" translatable="false">
+        <item></item>
+        <item>a chubby, cute baby or toddler (about 1 to 3 years old)</item>
+        <item>a playful kid (about 6 to 10 years old)</item>
+        <item>a teenager (about 14 to 17 years old)</item>
+        <item>a college-age young adult (about 18 to 25 years old)</item>
+        <item>an adult in their 30s</item>
+        <item>a middle-aged Indian uncle or aunty (about 45 to 55 years old)</item>
+        <item>an elderly grandparent, a thatha or ammamma (about 70 years old)</item>
+    </string-array>
     <string-array name="ai_examples">
         <item>My friend is always late to college and we tease him</item>
         <item>Couple fighting over who ate the last biryani piece</item>
